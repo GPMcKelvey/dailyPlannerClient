@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class TodosDisplay extends Component {
+export default class AdminFetch extends Component {
 
     render() {
         return (

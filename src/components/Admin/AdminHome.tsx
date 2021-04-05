@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class TodosDisplay extends Component {
+export default class AdminHome extends Component {
 
     render() {
         return (

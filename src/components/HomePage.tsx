@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import NavBar from './components/navbar/Navbar';
+import NavBar from './navbar/Navbar';
 import HomeDisplay from './HomeDisplay';
+
 
 type AcceptedProps = {
 
@@ -38,8 +39,9 @@ export default class HomePage extends Component<AcceptedProps, SearchState> {
     render() {
         return(
             <div>
-                <NavBar />
+                
                 <HomeDisplay results={this.state.results}/>
+                
             </div>
         )
     }

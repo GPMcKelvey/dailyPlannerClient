@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       
-        <NavBar />
+        <NavBar clearToken={clearToken} />
         <Auth updateToken={updateToken}/>
       <header className="App-header">
         <p>Daily Planner</p>

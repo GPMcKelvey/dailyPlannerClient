@@ -7,11 +7,12 @@ import HomePage from '../HomePage'
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
 
-// type AcceptedProps = {
-//     updateToken: any
-// }
+type AcceptedProps = {
+    // updateToken: any,
+    clearToken: any
+}
 
-const NavBar = () => {
+const NavBar = (props: AcceptedProps) => {
 
         return (
             <div><Router>
@@ -24,6 +25,7 @@ const NavBar = () => {
                             </li>
                         {/* <li><Link to='/Login' className='site-link'>Login</Link></li>
                         <li><Link to='/Signup' className='site-link'>Sign Up</Link></li> */}
+                        <li><button onClick={props.clearToken}>Log Out</button></li>
                     </ul>
                 </div>
                 <div>

@@ -32,6 +32,13 @@ export default class Auth extends Component<AcceptedProps, AuthState> {
         })
     }
 
+    exitHandler = (e: any) => {
+        this.setState({
+            loginModal: false,
+            signupModal: false
+        })
+    }
+
     render() {
         return(
             <div>
@@ -39,8 +46,8 @@ export default class Auth extends Component<AcceptedProps, AuthState> {
                     <button onClick={this.signupModalHandler}>Signup</button>
                     <button onClick={this.loginModalHandler}>Login</button>
                 </div>
-                {this.state.loginModal ? <Login updateToken={this.props.updateToken} /> : null}
-                {this.state.signupModal ? <Signup updateToken={this.props.updateToken} /> : null}
+                {this.state.loginModal ? <Login updateToken={this.props.updateToken} exitHandler={this.exitHandler} loginModal={this.state.loginModal}/> : null}
+                {this.state.signupModal ? <Signup updateToken={this.props.updateToken} exitHandler={this.exitHandler} signupModal={this.state.signupModal} /> : null}
             </div>
         )
     }

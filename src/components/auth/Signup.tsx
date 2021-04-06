@@ -3,6 +3,8 @@ import Modal from '@material-ui/core/Modal';
 
 type AcceptedProps = {
     updateToken: any,
+    exitHandler: any,
+    signupModal: boolean
 }
 
 type SignupState = {
@@ -17,7 +19,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
         this.state = {
             username: '',
             password: '',
-            modal: true
+            modal: props.signupModal
         }
     }
 
@@ -64,11 +66,11 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
             })
     }
 
-    exitHandler = (e: any) => {
-        this.setState({
-            modal: false
-        })
-    }
+    // exitHandler = (e: any) => {
+    //     this.setState({
+    //         modal: false
+    //     })
+    // }
 
     render() {
         return (
@@ -87,7 +89,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
                   </input>
                   <br />
                   <button className='form-input-btn' onClick={this.handleSubmit}>Submit</button>
-                 <button className= 'form-input-btn' onClick={this.exitHandler}>Exit</button>
+                 <button className= 'form-input-btn' onClick={this.props.exitHandler}>Exit</button>
                   <br/>
               </form>
               </div>

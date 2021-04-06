@@ -1,10 +1,51 @@
 import React, {Component} from 'react';
+import TodosDisplay from './Display';
 
-export default class TodosFetch extends Component {
+type AcceptedProps = {
+    sessionToken: any
+}
+
+type NotesState = {
+    results: []
+}
+
+export default class TodosFetch extends Component<AcceptedProps, NotesState> {
+    constructor(props: AcceptedProps) {
+        super(props)
+        this.state = {
+            results: []
+        }
+    }
+
+    todosFetch = async () => {
+        await fetch(`http://localhost:3000/todos/`, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type':
+                'application/json',
+                'Authorization': this.props.sessionToken
+            })
+        })
+         .then(res => res.json())
+         .then((json) => (
+            console.log(json), 
+            this.setState({
+                 results: json.task
+             })
+             
+         ))
+         console.log(this.state.results)
+     }
+ 
+     componentDidMount(){
+         this.todosFetch();
+     }
 
     render() {
         return (
-            <div></div>
+            <div>
+                <TodosDisplay results={this.state.results}/>
+            </div>
         )
     }
 }

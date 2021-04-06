@@ -21,8 +21,18 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
         }
     }
 
+    regEx = new RegExp (/[a-z]{1,10}[0-9]{1,10}/i);
+
     handleSubmit = (event: any) => {
         event.preventDefault();
+
+        if(this.state.password.length<5){
+            alert('Password needs to be more than 5 characters')
+  
+       } else if (this.state.username.length<4) {
+            alert('Username needs to be more than 4 characters')
+         } else if (this.regEx.test(this.state.username)){
+
         fetch(`http://localhost:3000/users/signup`,{
              method: 'POST',
              body: JSON.stringify({
@@ -41,6 +51,9 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
              this.props.updateToken(data.sessionToken);
         })
         this.setState({modal: false});
+    } else {
+        alert('Username needs a number')
+      }
     }
 
     inputHandler = (e: any) => {

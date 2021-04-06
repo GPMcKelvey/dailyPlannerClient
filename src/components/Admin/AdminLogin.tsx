@@ -13,7 +13,7 @@ type LoginState = {
     modal: boolean
 }
 
-export default class Login extends Component<AcceptedProps, LoginState> {
+export default class AdminLogin extends Component<AcceptedProps, LoginState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
@@ -63,7 +63,7 @@ export default class Login extends Component<AcceptedProps, LoginState> {
     render() {
         return (
             <div>
-                <Modal open={this.state.modal} className='signup'>  
+                <Modal open={this.state.modal} className='login'>  
                     <div className= 'body'>
                         <h1 className='header'>Login</h1>
                             <form className='form-inputs' onSubmit={this.handleSubmit}>    

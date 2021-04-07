@@ -5,11 +5,12 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 import HomePage from '../HomePage';
 import Profile from '../profile/Profile';
+import ProfileDisplay from '../profile/ProfileDisplay';
 
 type AcceptedProps = {
     updateToken: any,
     clearToken: any,
-    sessionToken: any
+    sessionToken: string
 }
 
 const NavBar = (props: AcceptedProps) => {
@@ -26,7 +27,7 @@ const NavBar = (props: AcceptedProps) => {
                                 </li>
                                 <li>
                                     <button>
-                                        <Link to='/Profile' className='site-link'>Profile</Link>
+                                        <Link to='/ProfileDisplay' className='site-link'>Profile</Link>
                                     </button>
                                 </li>
                             <li><button onClick={props.clearToken}>Log Out</button></li>
@@ -35,7 +36,7 @@ const NavBar = (props: AcceptedProps) => {
                     <div>
                         <Switch>
                             <Route exact path="/HomePage"><HomePage updateToken={props.updateToken}/></Route>
-                            <Route exact path='/Profile'><Profile updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/></Route>
+                            <Route exact path='/ProfileDisplay'><ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/></Route>
                         </Switch>
                     </div>
                 </Router>

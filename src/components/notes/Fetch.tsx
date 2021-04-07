@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import NotesCreate from './Create';
 import NotesDisplay from './Display';
 
 type AcceptedProps = {
-    sessionToken: any
+    sessionToken: string
 }
 
 type NotesState = {
@@ -44,6 +45,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
     render() {
         return (
             <div>
+                <NotesCreate sessionToken={this.props.sessionToken} notesFetch={this.notesFetch} />
                 <NotesDisplay results={this.state.results}/>
             </div>
         )

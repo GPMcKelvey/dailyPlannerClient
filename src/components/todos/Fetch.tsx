@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import TodosCreate from './Create';
 import TodosDisplay from './Display';
 
 type AcceptedProps = {
-    sessionToken: any
+    sessionToken: string
 }
 
 type NotesState = {
@@ -44,6 +45,7 @@ export default class TodosFetch extends Component<AcceptedProps, NotesState> {
     render() {
         return (
             <div>
+                <TodosCreate sessionToken={this.props.sessionToken} todosFetch={this.todosFetch} />
                 <TodosDisplay results={this.state.results}/>
             </div>
         )

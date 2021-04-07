@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import ECreate from './ECreate';
 import EventsDisplay from './EDisplay';
 
 type AcceptedProps = {
-    sessionToken: any
+    sessionToken: string
 }
 
 type EState = {
@@ -44,6 +45,7 @@ export default class EventsFetch extends Component<AcceptedProps, EState> {
     render() {
         return (
             <div>
+                <ECreate sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
                 <EventsDisplay results={this.state.results}/>
             </div>
         )

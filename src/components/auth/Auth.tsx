@@ -3,7 +3,7 @@ import Login from './Login';
 import Signup from './Signup';
 
 type AcceptedProps = {
-    updateToken: any
+    updateToken: string
 }
 
 type AuthState = {

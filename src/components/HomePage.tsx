@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import NavBar from './navbar/Navbar';
 import HomeDisplay from './HomeDisplay';
 import Auth from './auth/Auth';
 

@@ -10,13 +10,15 @@ const AdminDisplay = (props: {results: Array<AcceptedProps>}) => {
     console.log(result);
     return (
         <div>
-            {result.map((result: AcceptedProps) => {
+        {props.results !== undefined ?
+            result.map((result: AcceptedProps) => {
                 return(    
                 <div>
                    <h2>{result.username}</h2>
                </div>
                )
-            })}
+            })
+            : null}
         </div>
     )
 }

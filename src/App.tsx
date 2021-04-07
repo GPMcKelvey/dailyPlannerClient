@@ -30,16 +30,12 @@ function App() {
   console.log(sessionToken);
 
   const authorizedViews = () => {
-    return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') != undefined ? <Profile sessionToken={sessionToken}/> : <HomePage />)
+    return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') != undefined ? <Profile updateToken={updateToken} sessionToken={sessionToken} clearToken={clearToken} /> : <HomePage updateToken={updateToken} />)
   }
   return (
     <div className="App">
       <header className="App-header">
-        <NavBar clearToken={clearToken} />
-        <Auth updateToken={updateToken}/>
         <p>Daily Planner</p>
-        {/* <HomePage /> */}
-        {/* <Authenticate updateToken={updateToken}/> */}
       </header>
         {authorizedViews()}
     </div>

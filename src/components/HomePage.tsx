@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import NavBar from './navbar/Navbar';
 import HomeDisplay from './HomeDisplay';
+import Auth from './auth/Auth';
 
 
 type AcceptedProps = {
-
+    updateToken: any
 }
 
 type SearchState = {
@@ -39,7 +40,7 @@ export default class HomePage extends Component<AcceptedProps, SearchState> {
     render() {
         return(
             <div>
-                
+                <Auth updateToken={this.props.updateToken} />
                 <HomeDisplay results={this.state.results}/>
                 
             </div>

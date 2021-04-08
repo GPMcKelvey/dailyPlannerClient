@@ -14,9 +14,9 @@ const HomeDisplay = (props: {results: Array<AcceptedProps>}) => {
     console.log(result);
     return (
         <div>
-            {result.map((result: AcceptedProps) => {
+            {result.map((result: AcceptedProps, index) => {
                 return(    
-                <div>
+                <div key={index}>
                    <h2>{result.eventTitle}</h2>
                    <h4>{result.eventDescription}</h4>
                    <h6>Date: {result.eventDate}</h6>

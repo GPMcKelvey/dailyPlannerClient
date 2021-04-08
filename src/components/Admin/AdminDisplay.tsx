@@ -1,10 +1,12 @@
 import React from 'react';
+import AdminUpdate from './AdminDelete';
 
 type AcceptedProps = {
     username: string,
+    id: string
 }
 
-const AdminDisplay = (props: {results: Array<AcceptedProps>}) => {
+const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, adminFetch: any}) => {
 
     let result = props.results;
     console.log(result);
@@ -15,6 +17,7 @@ const AdminDisplay = (props: {results: Array<AcceptedProps>}) => {
                 return(    
                 <div>
                    <h2>{result.username}</h2>
+                   <AdminUpdate sessionToken={props.sessionToken} adminFetch={props.adminFetch} id={result.id} />
                </div>
                )
             })

@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
+
 import HomePage from '../src/components/HomePage';
 import Profile from './components/profile/Profile';
-import NavBar from './components/navbar/Navbar';
-import Auth from './components/auth/Auth';
 
 // let sessionToken: string;
 
@@ -16,13 +15,7 @@ function App() {
     setSessionToken('');
   }
 
-  // useEffect(() => {
-  //   if (localStorage.getItem('token')) {
-  //     setSessionToken(localStorage.getItem('token'));
-  //   }
-  // }, [])
-
-  const updateToken = (newToken: any) => {
+  const updateToken = (newToken: string) => {
     console.log(newToken);
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
@@ -30,7 +23,7 @@ function App() {
   console.log(sessionToken);
 
   const authorizedViews = () => {
-    return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') != undefined ? <Profile updateToken={updateToken} sessionToken={sessionToken} clearToken={clearToken} /> : <HomePage updateToken={updateToken} />)
+    return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') !== undefined ? <Profile updateToken={updateToken} sessionToken={sessionToken} clearToken={clearToken} /> : <HomePage updateToken={updateToken} />)
   }
   return (
     <div className="App">

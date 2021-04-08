@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import Modal from '@material-ui/core/Modal';
+import React, {Component, ChangeEvent} from 'react';
 
 type AcceptedProps = {
     sessionToken: string,
@@ -40,7 +39,7 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
         })
     }
 
-    inputHandler = (e: any) => {
+    inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         this.setState({
                 ...this.state,

@@ -1,14 +1,17 @@
 import React from 'react';
+import EventsUpdate from './EUpdate';
 
 type AcceptedProps = {
     eventDate: Date,
     eventDescription: string,
     eventEndTime: number,
     eventStartTime: number,
-    eventTitle: string
+    eventTitle: string,
+    eventPrivacy: boolean,
+    id: string
 }
 
-const EventsDisplay = (props: {results: Array<AcceptedProps>}) => {
+const EventsDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, personalEventFetch: any}) => {
 
     let result = props.results;
     console.log(result);
@@ -22,6 +25,7 @@ const EventsDisplay = (props: {results: Array<AcceptedProps>}) => {
                    <h6>Date: {result.eventDate}</h6>
                    <h6>Start time: {result.eventStartTime}</h6>
                    <h6>End time: {result.eventEndTime}</h6>
+                   <EventsUpdate sessionToken={props.sessionToken} personalEventFetch={props.personalEventFetch} id={result.id} eventDate={result.eventDate} eventDescription={result.eventDescription} eventEndTime={result.eventEndTime} eventStartTime={result.eventStartTime} eventTitle={result.eventTitle} eventPrivacy={result.eventPrivacy}/>
                </div>
                )
             })}

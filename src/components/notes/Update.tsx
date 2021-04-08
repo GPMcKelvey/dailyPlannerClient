@@ -1,31 +1,33 @@
-import React, {Component, ChangeEvent} from 'react';
-
 import { Dialog } from '@material-ui/core';
+import React, {Component} from 'react';
 
 type AcceptedProps = {
     sessionToken: string,
-    notesFetch: any
+    notesFetch: any,
+    title: string,
+    content: string,
+    id: string
 }
 
-type CreateState = {
+type updateState = {
     title: string,
     content: string,
     modal: boolean
 }
 
-export default class NotesCreate extends Component<AcceptedProps, CreateState> {
+export default class NotesUpdate extends Component<AcceptedProps, updateState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
-            title: '',
-            content: '',
+            title: this.props.title,
+            content: this.props.content,
             modal: false
         }
     }
 
-    createFetch = () => {
-        fetch(`http://localhost:3000/notes/create`, {
-            method: 'POST',
+    updateFetch = () => {
+        fetch(`http://localhost:3000/notes/update/${this.props.id}`, {
+            method: 'PUT',
             body: JSON.stringify({
                 notes: {
                     title: this.state.title,
@@ -33,22 +35,40 @@ export default class NotesCreate extends Component<AcceptedProps, CreateState> {
                 }
             }),
             headers: new Headers ({
-                'Content-Type': 'application/json',
+                'Content-type': 'application/json',
                 'Authorization': this.props.sessionToken
             })
         }).then((res) => res.json())
         .then((data) => {
             console.log(data);
-            this.setState({
-                title: '',
-                content: '',
-                modal: false
-            });
             this.props.notesFetch();
         })
+        this.setState({
+            modal: false
+        })
+        console.log(this.state.title)
     }
 
-    inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    componentDidUpdate(prevState: any) {
+        if (prevState.title !== this.props.title){
+            this.setState({
+                title: this.props.title,
+                content: this.props.content
+            })
+        }
+    }
+
+    deleteFetch = () => {
+        fetch(`http://localhost:3000/notes/delete/${this.props.id}`, {
+            method: 'DELETE',
+            headers: new Headers ({
+                'Content-type': 'application/json',
+                'Authorization': this.props.sessionToken
+            })
+        }).then(() => this.props.notesFetch())
+    }
+
+    inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         this.setState({
                 ...this.state,
@@ -61,26 +81,30 @@ export default class NotesCreate extends Component<AcceptedProps, CreateState> {
             modal: true
         })
     }
-    exitHandler = (e: any) => {
+
+    exitHandler = () => {
         this.setState({
             modal: false
         })
     }
 
+
+
     render() {
         return(
             <div>
-                <button onClick={this.modalHandler}>Create New Note</button>
+                <button onClick={this.modalHandler}>Update</button>
+                <button onClick={this.deleteFetch}>Delete</button>
                 <Dialog open={this.state.modal}>
                     <div>
-                        <h1>Create Note</h1>
+                        <h1>Update Note</h1>
                         <form>
                             <label>Note Title</label>
                             <input id='title' name='title' type='text' onChange={this.inputHandler} value={this.state.title}></input>
                             <label>Note Content</label>
                             <input id='content' name='content' type='text' onChange={this.inputHandler} value={this.state.content}></input>
                         </form>
-                        <button onClick={this.createFetch}>Create</button>
+                        <button onClick={this.updateFetch}>Update</button>
                         <button onClick={this.exitHandler}>Exit</button>
                     </div>
                 </Dialog>

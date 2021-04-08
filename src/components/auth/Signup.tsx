@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Modal from '@material-ui/core/Modal';
+import { Dialog } from '@material-ui/core';
 
 type AcceptedProps = {
     updateToken: any,
@@ -75,7 +75,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
     render() {
         return (
             <div>
-                <Modal open={this.state.modal} className='signup'>  
+                <Dialog open={this.state.modal} className='signup'>  
                <div className= 'body'>
                <h1 className='header'>Sign Up</h1>
              <form className='form-inputs' onSubmit={this.handleSubmit}>              
@@ -93,7 +93,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
                   <br/>
               </form>
               </div>
-          </Modal>
+          </Dialog>
             </div>
         )
     }

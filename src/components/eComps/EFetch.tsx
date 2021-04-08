@@ -46,7 +46,7 @@ export default class EventsFetch extends Component<AcceptedProps, EState> {
         return (
             <div>
                 <ECreate sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
-                <EventsDisplay results={this.state.results}/>
+                <EventsDisplay results={this.state.results} sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
             </div>
         )
     }

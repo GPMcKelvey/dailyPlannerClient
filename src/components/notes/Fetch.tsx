@@ -46,7 +46,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
         return (
             <div>
                 <NotesCreate sessionToken={this.props.sessionToken} notesFetch={this.notesFetch} />
-                <NotesDisplay results={this.state.results}/>
+                <NotesDisplay results={this.state.results} sessionToken={this.props.sessionToken} notesFetch={this.notesFetch}/>
             </div>
         )
     }

@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 
 import HomePage from '../HomePage';
-import Profile from '../profile/Profile';
 import ProfileDisplay from '../profile/ProfileDisplay';
 
 type AcceptedProps = {

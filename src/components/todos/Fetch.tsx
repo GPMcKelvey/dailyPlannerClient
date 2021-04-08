@@ -46,7 +46,7 @@ export default class TodosFetch extends Component<AcceptedProps, NotesState> {
         return (
             <div>
                 <TodosCreate sessionToken={this.props.sessionToken} todosFetch={this.todosFetch} />
-                <TodosDisplay results={this.state.results}/>
+                <TodosDisplay sessionToken={this.props.sessionToken} results={this.state.results} todosFetch={this.todosFetch}/>
             </div>
         )
     }

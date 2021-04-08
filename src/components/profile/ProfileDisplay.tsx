@@ -17,7 +17,9 @@ const ProfileDisplay = (props: AcceptedProps) => {
             <div>
                 profile test
                 <EventsFetch sessionToken={props.sessionToken} />
+                <hr/>
                 <NotesFetch sessionToken={props.sessionToken} />
+                <hr/>
                 <TodosFetch sessionToken={props.sessionToken} />
                 <AdminFetch sessionToken={props.sessionToken} />
             </div>

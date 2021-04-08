@@ -44,7 +44,7 @@ export default class AdminFetch extends Component<AcceptedProps, NotesState> {
     render() {
         return (
             <div>
-                <AdminDisplay results={this.state.results}/>
+                <AdminDisplay results={this.state.results} sessionToken={this.props.sessionToken} adminFetch={this.adminFetch} />
             </div>
         )
     }

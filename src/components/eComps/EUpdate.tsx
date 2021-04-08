@@ -1,13 +1,20 @@
-import React, {Component, ChangeEvent} from 'react';
+import React, {Component} from 'react';
 
 import { Dialog } from '@material-ui/core';
 
 type AcceptedProps = {
     sessionToken: string,
-    personalEventFetch: any
+    personalEventFetch: any,
+    eventDate: Date,
+    eventDescription: string,
+    eventEndTime: number,
+    eventStartTime: number,
+    eventTitle: string,
+    eventPrivacy: boolean,
+    id: string
 }
 
-type CreateState = {
+type updateState = {
     eventDate: Date,
     eventDescription?: string,
     eventEndTime?: number,
@@ -15,25 +22,26 @@ type CreateState = {
     eventTitle: string,
     eventPrivacy: boolean,
     modal: boolean
+
 }
 
-export default class ECreate extends Component<AcceptedProps, CreateState> {
+export default class EventsUpdate extends Component<AcceptedProps, updateState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
-            eventDate: new Date(),
-            eventDescription: '',
-            eventEndTime: 0,
-            eventStartTime: 0,
-            eventTitle: '',
-            eventPrivacy: true,
+            eventDate: this.props.eventDate,
+            eventDescription: this.props.eventDescription,
+            eventEndTime: this.props.eventEndTime,
+            eventStartTime: this.props.eventStartTime,
+            eventTitle: this.props.eventTitle,
+            eventPrivacy: this.props.eventPrivacy,
             modal: false
         }
     }
 
-    createFetch = () => {
-        fetch(`http://localhost:3000/events/create`, {
-            method: 'POST',
+    updateFetch = () => {
+        fetch(`http://localhost:3000/events/update/${this.props.id}`, {
+            method: 'PUT',
             body: JSON.stringify({
                 events: {
                     eventTitle: this.state.eventTitle,
@@ -41,31 +49,47 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
                     eventDate: this.state.eventDate,
                     eventStartTime: this.state.eventStartTime,
                     eventEndTime: this.state.eventEndTime,
-                    eventPrivacy: this.state.eventPrivacy
+                    eventPrivacy: this.state.eventPrivacy 
                 }
             }),
             headers: new Headers ({
-                'Content-Type': 'application/json',
+                'Content-type': 'application/json',
                 'Authorization': this.props.sessionToken
             })
         }).then((res) => res.json())
         .then((data) => {
             console.log(data);
-            this.setState({
-                eventDate: new Date(),
-                eventDescription: '',
-                eventEndTime: 0,
-                eventStartTime: 0,
-                eventTitle: '',
-                eventPrivacy: true,
-                modal: false
-            });
             this.props.personalEventFetch();
         })
-
+        this.setState({
+            modal: false
+        })
     }
 
-    inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    componentDidUpdate(prevState: any) {
+        if (prevState.eventTitle !== this.props.eventTitle){
+            this.setState({
+                eventTitle: this.props.eventTitle,
+                    eventDescription: this.props.eventDescription,
+                    eventDate: this.props.eventDate,
+                    eventStartTime: this.props.eventStartTime,
+                    eventEndTime: this.props.eventEndTime,
+                    eventPrivacy: this.props.eventPrivacy 
+            })
+        }
+    }
+
+    deleteFetch = () => {
+        fetch(`http://localhost:3000/events/delete/${this.props.id}`, {
+            method: 'DELETE',
+            headers: new Headers ({
+                'Content-type': 'application/json',
+                'Authorization': this.props.sessionToken
+            })
+        }).then(() => this.props.personalEventFetch())
+    }
+
+    inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         this.setState({
                 ...this.state,
@@ -78,20 +102,21 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
             modal: true
         })
     }
+
     exitHandler = () => {
         this.setState({
             modal: false
         })
     }
 
-
     render() {
         return(
             <div>
-                <button onClick={this.modalHandler}>Create New Event</button>
+                <button onClick={this.modalHandler}>Update</button>
+                <button onClick={this.deleteFetch}>Delete</button>
                 <Dialog open={this.state.modal}>
                     <div>
-                        <h1>Create Event</h1>
+                        <h1>Update Event</h1>
                     <form>
                         <label>Event Title</label>
                         <input id='eventTitle' name='eventTitle' type='text' onChange={this.inputHandler} value={this.state.eventTitle}></input>
@@ -105,7 +130,6 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
                         <input id='eventStartTime' name='eventStartTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input>
                         <label>End Time</label>
                         <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input>
-                        <br/>
                         <label>Private</label>
                         <input id='eventPrivacy' name='eventPrivacy' type='radio' 
                         value= 'true' 
@@ -115,11 +139,10 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
                         value= 'false' 
                         onChange={this.inputHandler}></input>
                     </form>
-                    <button onClick={this.createFetch}>Create</button>
+                    <button onClick={this.updateFetch}>Update</button>
                     <button onClick={this.exitHandler}>Exit</button>
                     </div>
                 </Dialog>
-
             </div>
         )
     }

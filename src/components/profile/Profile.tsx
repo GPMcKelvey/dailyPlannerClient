@@ -13,9 +13,9 @@ const Profile = (props: AcceptedProps) => {
 
         return (
             <div>
-                <div>
+                <header>
                     <NavBar clearToken={props.clearToken} updateToken={props.updateToken} sessionToken={props.sessionToken}/>
-                </div>
+                </header>
             </div>
         )
 

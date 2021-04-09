@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
-import { Dialog } from '@material-ui/core';
+import './AuthStyle.css'
+
+import { Dialog, Button, withStyles, Theme, Box } from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     updateToken: any,
     exitHandler: any,
-    signupModal: boolean
+    signupModal: boolean,
 }
 
 type SignupState = {
@@ -76,21 +89,25 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
         return (
             <div>
                 <Dialog open={this.state.modal} className='signup'>  
-               <div className= 'body'>
+               <div id='signupDiv'>
                <h1 className='header'>Sign Up</h1>
              <form className='form-inputs' onSubmit={this.handleSubmit}>              
-                
                   <label> Username: </label>
+                  <Box>
                   <input id='username' name= 'username' type= 'text' onChange={this.inputHandler} value={this.state.username} >   
-                  </input>
+                  </input></Box>
                   <br/>
                   <label> Password:</label>
+                  <Box>
                   <input id='password' name='password' type='password' onChange={this.inputHandler} value={this.state.password}>
-                  </input>
+                  </input></Box>
                   <br />
-                  <button className='form-input-btn' onClick={this.handleSubmit}>Submit</button>
-                 <button className= 'form-input-btn' onClick={this.props.exitHandler}>Exit</button>
-                  <br/>
+                  <Box display='flex'>
+                      <Box m={1} p={1}>
+                  <ColorButton className='form-input-btn' onClick={this.handleSubmit}>Submit</ColorButton></Box>
+                  <Box m={1} p={1}>
+                 <ColorButton className= 'form-input-btn' onClick={this.props.exitHandler}>Exit</ColorButton></Box>
+                 </Box>
               </form>
               </div>
           </Dialog>

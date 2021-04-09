@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
+import './EStyle.css';
 
-import { Dialog } from '@material-ui/core';
+import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -112,35 +124,52 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
     render() {
         return(
             <div>
-                <button onClick={this.modalHandler}>Update</button>
-                <button onClick={this.deleteFetch}>Delete</button>
-                <Dialog open={this.state.modal}>
-                    <div>
+                <Box display='flex' justifyContent="center">
+                    <Box m={1} p={1}>
+                <ColorButton onClick={this.modalHandler}>Update</ColorButton></Box>
+                <Box m={1} p={1}>
+                <ColorButton onClick={this.deleteFetch}>Delete</ColorButton></Box>
+                </Box>
+                <Dialog open={this.state.modal} className='update'>
+                    <div id='updateDiv'>
                         <h1>Update Event</h1>
                     <form>
-                        <label>Event Title</label>
-                        <input id='eventTitle' name='eventTitle' type='text' onChange={this.inputHandler} value={this.state.eventTitle}></input>
-                        <label>Event Description</label>
-                        <input id='eventDescription' name='eventDescription' type='text' onChange={this.inputHandler} value={this.state.eventDescription}></input>
-                        <label>Date</label>
+                    <Box display='flex' m={2} p={1}>
+                            <Box m={1}>
+                        <label>Event Title: </label>
+                        <input id='eventTitle' name='eventTitle' type='text' onChange={this.inputHandler} value={this.state.eventTitle}></input></Box>
+                        <Box m={1}>
+                        <label>Event Description: </label>
+                        <input id='eventDescription' name='eventDescription' type='text' onChange={this.inputHandler} value={this.state.eventDescription}></input></Box>
+                        </Box>
+                        <Box display='flex' m={2}>
+                            <Box m={1}>
+                        <label>Date: </label>
                         <input id='eventDate' name='eventDate' type='date' onChange={this.inputHandler}
                         // value={this.state.eventDate}
-                        ></input>
-                        <label>Start Time</label>
-                        <input id='eventStartTime' name='eventStartTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input>
-                        <label>End Time</label>
-                        <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input>
-                        <label>Private</label>
+                        ></input></Box>
+                        <Box m={1}>
+                        <label>Start Time: </label>
+                        <input id='eventStartTime' name='eventStartTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
+                        <Box m={1}>
+                        <label>End Time: </label>
+                        <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
+                        </Box>
+                        <label>Private: </label>
                         <input id='eventPrivacy' name='eventPrivacy' type='radio' 
                         value= 'true' 
                         onChange={this.inputHandler}></input>
-                        <label>Public</label>
+                        <label>Public: </label>
                         <input id='eventPrivacy' name='eventPrivacy' type='radio' 
                         value= 'false' 
                         onChange={this.inputHandler}></input>
                     </form>
-                    <button onClick={this.updateFetch}>Update</button>
-                    <button onClick={this.exitHandler}>Exit</button>
+                    <Box display='flex' justifyContent='center' m={2} p={2}>
+                        <Box m={1}>
+                    <ColorButton onClick={this.updateFetch}>Update</ColorButton></Box>
+                    <Box m={1}>
+                    <ColorButton onClick={this.exitHandler}>Exit</ColorButton></Box>
+                    </Box>
                     </div>
                 </Dialog>
             </div>

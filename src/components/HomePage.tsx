@@ -1,21 +1,25 @@
 import React, {Component} from 'react';
+
 import HomeDisplay from './HomeDisplay';
 import Auth from './auth/Auth';
 
 
 type AcceptedProps = {
-    updateToken: any
+    updateToken: any,
+    sessionToken: string
 }
 
 type SearchState = {
-    results: []
+    results: [],
+    auth: boolean
 }
 
 export default class HomePage extends Component<AcceptedProps, SearchState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
-            results: []
+            results: [],
+            auth: true
         }
     }
 
@@ -36,10 +40,14 @@ export default class HomePage extends Component<AcceptedProps, SearchState> {
         this.publicEventFetch();
     }
 
+
     render() {
         return(
             <div>
-                <Auth updateToken={this.props.updateToken} />
+                {this.props.sessionToken !== localStorage.getItem('token') ?
+                <Auth updateToken={this.props.updateToken} /> : null}
+                {this.props.sessionToken !== localStorage.getItem('token') ?
+                <h1>Welcome to Daily Planner</h1> : <h1>Public Events</h1>}
                 <HomeDisplay results={this.state.results}/>
                 
             </div>

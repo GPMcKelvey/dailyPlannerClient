@@ -15,7 +15,7 @@ const ProfileDisplay = (props: AcceptedProps) => {
 
         return (
             <div>
-                profile test
+                <h1>Welcome to your Daily Planner</h1>
                 <EventsFetch sessionToken={props.sessionToken} />
                 <hr/>
                 <NotesFetch sessionToken={props.sessionToken} />

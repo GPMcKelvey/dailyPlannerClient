@@ -1,0 +1,21 @@
+.login {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#loginDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke
+}
+
+.signup {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#signupDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke
+}

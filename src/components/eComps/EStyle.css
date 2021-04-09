@@ -1,0 +1,23 @@
+.create {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#createDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+    padding: em;
+}
+
+.update {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#updateDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+    padding: em;
+}

@@ -1,5 +1,17 @@
-import { Dialog } from '@material-ui/core';
 import React, {Component} from 'react';
+
+import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -93,19 +105,33 @@ export default class NotesUpdate extends Component<AcceptedProps, updateState> {
     render() {
         return(
             <div>
-                <button onClick={this.modalHandler}>Update</button>
-                <button onClick={this.deleteFetch}>Delete</button>
-                <Dialog open={this.state.modal}>
-                    <div>
+                <Box display='flex' justifyContent="center">
+                    <Box m={1} p={1}>
+                <ColorButton onClick={this.modalHandler}>Update</ColorButton></Box>
+                <Box m={1} p={1}>
+                <ColorButton onClick={this.deleteFetch}>Delete</ColorButton></Box>
+                </Box>
+                <Dialog open={this.state.modal} className='update'>
+                    <div id='updateDiv'>
                         <h1>Update Note</h1>
                         <form>
-                            <label>Note Title</label>
-                            <input id='title' name='title' type='text' onChange={this.inputHandler} value={this.state.title}></input>
-                            <label>Note Content</label>
-                            <input id='content' name='content' type='text' onChange={this.inputHandler} value={this.state.content}></input>
+                        <Box display='flex' m={2} p={1}>
+                            <Box m={1}>
+                            <label>Title: </label>
+                            <br/>
+                            <input id='title' name='title' type='text' onChange={this.inputHandler} value={this.state.title}></input></Box>
+                            <Box m={1}>
+                            <label>Content: </label>
+                            <br/>
+                            <input id='content' name='content' type='text' onChange={this.inputHandler} value={this.state.content}></input></Box>
+                            </Box>
                         </form>
-                        <button onClick={this.updateFetch}>Update</button>
-                        <button onClick={this.exitHandler}>Exit</button>
+                        <Box display='flex' justifyContent='center' m={2} p={2}>
+                        <Box m={1}>
+                        <ColorButton onClick={this.updateFetch}>Update</ColorButton></Box>
+                        <Box m={1}>
+                        <ColorButton onClick={this.exitHandler}>Exit</ColorButton></Box>
+                        </Box>
                     </div>
                 </Dialog>
 

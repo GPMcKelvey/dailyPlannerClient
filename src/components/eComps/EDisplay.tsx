@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Card, CardContent, CardActions, Box } from '@material-ui/core';
+
 import EventsUpdate from './EUpdate';
 
 type AcceptedProps = {
@@ -18,15 +21,19 @@ const EventsDisplay = (props: {results: Array<AcceptedProps>, sessionToken: stri
     return (
         <div>
             {result.map((result: AcceptedProps) => {
-                return(    
-                <div>
-                   <h2>{result.eventTitle}</h2>
-                   <h4>{result.eventDescription}</h4>
-                   <h6>Date: {result.eventDate}</h6>
-                   <h6>Start time: {result.eventStartTime}</h6>
-                   <h6>End time: {result.eventEndTime}</h6>
+                return(
+                <Box pb={2}>    
+                <Card id='eCard' variant='outlined'>
+                    <CardContent>
+                   <h1>{result.eventTitle}</h1>
+                   <h3>{result.eventDescription}</h3>
+                   <h5>Date: {result.eventDate}</h5>
+                   <h5>Start time: {result.eventStartTime}</h5>
+                   <h5>End time: {result.eventEndTime}</h5>
+                   </CardContent>
                    <EventsUpdate sessionToken={props.sessionToken} personalEventFetch={props.personalEventFetch} id={result.id} eventDate={result.eventDate} eventDescription={result.eventDescription} eventEndTime={result.eventEndTime} eventStartTime={result.eventStartTime} eventTitle={result.eventTitle} eventPrivacy={result.eventPrivacy}/>
-               </div>
+               </Card>
+               </Box>
                )
             })}
         </div>

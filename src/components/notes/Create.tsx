@@ -1,6 +1,18 @@
 import React, {Component, ChangeEvent} from 'react';
+import './NoteStyle.css';
 
-import { Dialog } from '@material-ui/core';
+import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -70,18 +82,29 @@ export default class NotesCreate extends Component<AcceptedProps, CreateState> {
     render() {
         return(
             <div>
-                <button onClick={this.modalHandler}>Create New Note</button>
-                <Dialog open={this.state.modal}>
-                    <div>
-                        <h1>Create Note</h1>
+                <Box id='btpB' display='flex' justifyContent='center'>
+                <ColorButton onClick={this.modalHandler}>Create New Note</ColorButton></Box>
+                <Dialog open={this.state.modal} className='create'>
+                    <div id='createDiv'>
+                        <h1>New Note</h1>
                         <form>
-                            <label>Note Title</label>
-                            <input id='title' name='title' type='text' onChange={this.inputHandler} value={this.state.title}></input>
-                            <label>Note Content</label>
-                            <input id='content' name='content' type='text' onChange={this.inputHandler} value={this.state.content}></input>
+                        <Box display='flex' m={2} p={1}>
+                            <Box m={1}>
+                            <label>Title: </label>
+                            <br/>
+                            <input id='title' name='title' type='text' onChange={this.inputHandler} value={this.state.title}></input></Box>
+                            <Box m={1}>
+                            <label>Content: </label>
+                            <br/>
+                            <input id='content' name='content' type='text' onChange={this.inputHandler} value={this.state.content}></input></Box>
+                        </Box>
                         </form>
-                        <button onClick={this.createFetch}>Create</button>
-                        <button onClick={this.exitHandler}>Exit</button>
+                        <Box display='flex' justifyContent='center' m={2} p={2}>
+                        <Box m={1}>
+                        <ColorButton onClick={this.createFetch}>Create</ColorButton></Box>
+                        <Box m={1}>
+                        <ColorButton onClick={this.exitHandler}>Exit</ColorButton></Box>
+                        </Box>
                     </div>
                 </Dialog>
 

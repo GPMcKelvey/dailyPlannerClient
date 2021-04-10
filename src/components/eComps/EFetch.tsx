@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+
+import {Box} from '@material-ui/core';
+
 import ECreate from './ECreate';
 import EventsDisplay from './EDisplay';
+import './EStyle.css';
 
 type AcceptedProps = {
     sessionToken: string
@@ -45,7 +49,9 @@ export default class EventsFetch extends Component<AcceptedProps, EState> {
     render() {
         return (
             <div>
+                <Box pb={2}>
                 <ECreate sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
+                </Box>
                 <EventsDisplay results={this.state.results} sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
             </div>
         )

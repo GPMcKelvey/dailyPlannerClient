@@ -1,5 +1,10 @@
 import React from 'react'
 
+import './HomeStyle.css';
+
+import { Card, CardContent, CardActions, Box } from '@material-ui/core';
+
+
 type AcceptedProps = {
     eventDate: Date,
     eventDescription: string,
@@ -16,13 +21,19 @@ const HomeDisplay = (props: {results: Array<AcceptedProps>}) => {
         <div>
             {result.map((result: AcceptedProps, index) => {
                 return(    
-                <div key={index}>
-                   <h2>{result.eventTitle}</h2>
-                   <h4>{result.eventDescription}</h4>
-                   <h6>Date: {result.eventDate}</h6>
-                   <h6>Start time: {result.eventStartTime}</h6>
-                   <h6>End time: {result.eventEndTime}</h6>
-               </div>
+                    <div key={index} >
+                    <Box pb={2} display='flex' justifyContent='center' >    
+                    <Card id='homeDiv' variant='outlined'>
+                        <CardContent>
+                       <h1>{result.eventTitle}</h1>
+                       <h3>{result.eventDescription}</h3>
+                       <h5>Date: {result.eventDate}</h5>
+                       <h5>Start time: {result.eventStartTime}</h5>
+                       <h5>End time: {result.eventEndTime}</h5>
+                       </CardContent>
+                       </Card>
+                       </Box>
+                    </div>
                )
             })}
         </div>

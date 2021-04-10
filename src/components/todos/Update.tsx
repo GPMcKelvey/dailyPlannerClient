@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 
-import {Button} from '@material-ui/core';
+import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -38,7 +49,7 @@ export default class TodosUpdate extends Component<AcceptedProps, updateState> {
     render() {
         return(
             <div>
-                <Button onClick={this.deleteFetch}>Completed</Button>
+                <ColorButton onClick={this.deleteFetch}>Completed</ColorButton>
             </div>
         )
     }

@@ -1,4 +1,18 @@
 import React, {Component, ChangeEvent} from 'react';
+import './TodoStyle.css';
+
+import {Button, withStyles, Theme, Box, Input} from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -49,12 +63,16 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
 
     render() {
         return(
-            <div>
-                <form>
+            <div className='createTodo'>
+                <form onSubmit={this.createFetch}>
+                <Box display='flex' justifyContent='center' id='createTodoDiv'>
+                    <Box m={1}>
                     <label>New Task: </label>
-                    <input id='task' name='task' type='text' onChange={this.inputHandler} value={this.state.task}></input>
+                    <Input id='task' name='task' type='text' onChange={this.inputHandler} value={this.state.task}></Input></Box>
+                <Box m={1}>
+                    <ColorButton type='submit'>Add Task</ColorButton></Box>
+                    </Box>
                 </form>
-                    <button onClick={this.createFetch}>Add Task</button>
             </div>
         )
     }

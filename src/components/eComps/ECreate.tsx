@@ -100,7 +100,8 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
     render() {
         return(
             <div>
-                <ColorButton onClick={this.modalHandler}>Create New Event</ColorButton>
+                <Box id='ectpB'>
+                <ColorButton onClick={this.modalHandler}>Create New Event</ColorButton></Box>
                 <Dialog className='create' open={this.state.modal}>
                     <div id='createDiv'>
                         <h1>Create Event</h1>
@@ -144,7 +145,6 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
                     </Box>
                     </div>
                 </Dialog>
-
             </div>
         )
     }

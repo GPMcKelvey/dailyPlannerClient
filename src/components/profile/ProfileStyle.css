@@ -1,0 +1,25 @@
+.notes {
+    border: 5px;
+    border-style: solid;
+    border-color: rgb(200, 174, 224);
+    height: fit-content;
+    border-radius: 10px;
+}
+
+#flexdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    padding-top: 4em;
+}
+
+#flex1 {
+    margin-left: 2em;
+    /* padding-top: .5em; */
+}
+
+#flex3 {
+    margin-right: 2em;
+    padding-bottom: 2em;
+}

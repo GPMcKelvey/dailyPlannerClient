@@ -1,0 +1,9 @@
+.createTodo {
+    text-align: center;
+    /* width: fit-content; */
+}
+
+#createTodoDiv {
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+}

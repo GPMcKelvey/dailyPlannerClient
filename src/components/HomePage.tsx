@@ -43,7 +43,7 @@ export default class HomePage extends Component<AcceptedProps, SearchState> {
 
     render() {
         return(
-            <div>
+            <div style={{paddingTop: '7%'}}>
                 {this.props.sessionToken !== localStorage.getItem('token') ?
                 <Auth updateToken={this.props.updateToken} /> : null}
                 {this.props.sessionToken !== localStorage.getItem('token') ?

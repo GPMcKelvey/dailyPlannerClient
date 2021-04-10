@@ -1,5 +1,17 @@
-import { Button } from '@material-ui/core';
 import React, {Component} from 'react';
+
+import { Button, withStyles, Theme } from '@material-ui/core';
+import {purple} from '@material-ui/core/colors';
+
+const ColorButton = withStyles((theme: Theme) => ({
+    root: {
+      color: theme.palette.getContrastText(purple[300]),
+      backgroundColor: purple[300],
+      '&:hover': {
+        backgroundColor: purple[400],
+      },
+    },
+  }))(Button);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -32,7 +44,7 @@ export default class AdminUpdate extends Component<AcceptedProps, adminState> {
     render() {
         return(
             <div>
-                <Button onClick={this.deleteFetch}>Delete User</Button>
+                <ColorButton onClick={this.deleteFetch}>Delete User</ColorButton>
             </div>
         )
     }

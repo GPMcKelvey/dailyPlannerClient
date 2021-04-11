@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './EStyle.css';
 
-import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
+import {Dialog, Button, withStyles, Theme, Box, Switch} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
 
 const ColorButton = withStyles((theme: Theme) => ({
@@ -13,6 +13,18 @@ const ColorButton = withStyles((theme: Theme) => ({
       },
     },
   }))(Button);
+
+const PurpleSwitch = withStyles({
+    switchBase: {
+      color: purple[300],
+      '&$checked': {
+        color: purple[400],
+      },
+      '$checked': {
+        backgroundColor: purple[400],
+      },
+    },
+  })(Switch);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -121,6 +133,18 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
         })
     }
 
+    switchHandler = () => {
+        if (this.state.eventPrivacy === true) {
+        this.setState({
+            eventPrivacy: false,
+        })
+    } else {
+        this.setState({
+            eventPrivacy: true,
+        })
+    }
+    }
+
     render() {
         return(
             <div>
@@ -147,7 +171,8 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
                         <label>Date: </label>
                         <input id='eventDate' name='eventDate' type='date' onChange={this.inputHandler}
                         // value={this.state.eventDate}
-                        ></input></Box>
+                        ></input>
+                        </Box>
                         <Box m={1}>
                         <label>Start Time: </label>
                         <input id='eventStartTime' name='eventStartTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
@@ -156,13 +181,7 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
                         <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
                         </Box>
                         <label>Private: </label>
-                        <input id='eventPrivacy' name='eventPrivacy' type='radio' 
-                        value= 'true' 
-                        onChange={this.inputHandler}></input>
-                        <label>Public: </label>
-                        <input id='eventPrivacy' name='eventPrivacy' type='radio' 
-                        value= 'false' 
-                        onChange={this.inputHandler}></input>
+                        <PurpleSwitch checked={this.state.eventPrivacy} onChange={this.switchHandler}></PurpleSwitch>
                     </form>
                     <Box display='flex' justifyContent='center' m={2} p={2}>
                         <Box m={1}>

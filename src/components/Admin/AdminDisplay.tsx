@@ -18,9 +18,10 @@ const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: strin
     console.log(result);
     return (
         <div>
-            <h1>Users List</h1>
         {props.results !== undefined ?
-            result.map((result: AcceptedProps) => {
+            <div>
+            <h1>Users List</h1>
+           {result.map((result: AcceptedProps) => {
                 return(    
                 <Box display='flex' justifyContent='center' alignItems='center'>
                     <Box mr={1}>
@@ -29,7 +30,7 @@ const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: strin
                    <AdminUpdate sessionToken={props.sessionToken} adminFetch={props.adminFetch} id={result.id} />
                </Box>
                )
-            })
+            })}</div>
             : null}
         </div>
     )

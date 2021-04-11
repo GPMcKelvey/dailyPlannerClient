@@ -5,6 +5,7 @@ import {purple} from '@material-ui/core/colors';
 
 import Login from './Login';
 import Signup from './Signup';
+import dailyPlanner from '../assets/dailyPlanner.png';
 
 const ColorButton = withStyles((theme: Theme) => ({
     root: {
@@ -58,9 +59,11 @@ export default class Auth extends Component<AcceptedProps, AuthState> {
             <div>
                 <AppBar>
                 <Box display='flex' justifyContent='center' className='appBar'>
-                <Box pt={3.5} pr={25} flexGrow= '4'>
-                        <Typography>Daily Planner</Typography></Box>
-                        <Box display='flex' flexGrow='7'>
+                <Box pt={2} pr={40} flexGrow= '1'>
+                    <img src={dailyPlanner} style={{maxHeight: '75%'}}></img>
+                        {/* <Typography>Daily Planner</Typography> */}
+                        </Box>
+                        <Box display='flex' flexGrow='7' alignSelf= 'center' justifySelf='center'>
                     <Box m={2} p={1} >
                     <ColorButton variant="contained" color='primary' onClick={this.signupModalHandler}>Sign Up</ColorButton></Box>
                     <Box m={2} p={1}>

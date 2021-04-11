@@ -8,6 +8,7 @@ import {purple} from '@material-ui/core/colors';
 
 import HomePage from '../HomePage';
 import ProfileDisplay from '../profile/ProfileDisplay';
+import dailyPlanner from '../assets/dailyPlanner.png';
 
 const ColorButton = withStyles((theme: Theme) => ({
     root: {
@@ -30,11 +31,13 @@ const NavBar = (props: AcceptedProps) => {
         return (
             <div>
                 <Router>
-                    <AppBar >
-                    <Box className='navbar' display='flex' >
-                        <Box pt={5} pr={20} flexGrow= '3.5'>
-                        <Typography>Daily Planner</Typography></Box>
-                        <Box display='flex' flexGrow= '7'>
+                    <AppBar>
+                    <Box className='navbar' display='flex'>
+                        <Box pt={2} pr={45} flexGrow= '1'>
+                            <img src={dailyPlanner} style={{maxHeight: '75%'}}></img>
+                        {/* <Typography>Daily Planner</Typography> */}
+                        </Box>
+                        <Box display='flex' flexGrow= '7' alignSelf='center' justifySelf='center'>
                         <Box m={2} p={2}>
                         <ColorButton>
                             <Link style={{textDecoration: 'none', color: 'white'}} to="/HomePage" className="site-link">Home</Link>
@@ -45,9 +48,9 @@ const NavBar = (props: AcceptedProps) => {
                             <Link style={{textDecoration: 'none', color: 'white'}} to='/ProfileDisplay' className='site-link'>Profile</Link>
                         </ColorButton>
                         </Box>
+                        </Box>
                         <Box m={2} p={2}>
                         <ColorButton onClick={props.clearToken}>Log Out</ColorButton></Box>
-                        </Box>
                     </Box>
                     </AppBar>
                     <div>

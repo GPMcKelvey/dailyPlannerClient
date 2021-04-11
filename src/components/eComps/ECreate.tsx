@@ -1,7 +1,7 @@
 import React, {Component, ChangeEvent} from 'react';
 import './EStyle.css';
 
-import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
+import {Dialog, Button, withStyles, Theme, Box, Switch} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
 
 const ColorButton = withStyles((theme: Theme) => ({
@@ -13,6 +13,19 @@ const ColorButton = withStyles((theme: Theme) => ({
       },
     },
   }))(Button);
+
+
+const PurpleSwitch = withStyles({
+    switchBase: {
+      color: purple[300],
+      '&$checked': {
+        color: purple[400],
+      },
+      '$checked': {
+        backgroundColor: purple[400],
+      },
+    },
+  })(Switch);
 
 type AcceptedProps = {
     sessionToken: string,
@@ -38,7 +51,7 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
             eventEndTime: 0,
             eventStartTime: 0,
             eventTitle: '',
-            eventPrivacy: true,
+            eventPrivacy: false,
             modal: false
         }
     }
@@ -96,6 +109,18 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
         })
     }
 
+    switchHandler = () => {
+        if (this.state.eventPrivacy === true) {
+        this.setState({
+            eventPrivacy: false,
+        })
+    } else {
+        this.setState({
+            eventPrivacy: true,
+        })
+    }
+    }
+
 
     render() {
         return(
@@ -129,13 +154,7 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
                         </Box>
                         <br/>
                         <label>Private: </label>
-                        <input id='eventPrivacy' name='eventPrivacy' type='radio' 
-                        value= 'true' 
-                        onChange={this.inputHandler}></input>
-                        <label>Public: </label>
-                        <input id='eventPrivacy' name='eventPrivacy' type='radio' 
-                        value= 'false' 
-                        onChange={this.inputHandler}></input>
+                        <PurpleSwitch checked={this.state.eventPrivacy} onChange={this.switchHandler}></PurpleSwitch>
                     </form>
                     <Box display='flex' justifyContent='center' m={2} p={2}>
                         <Box m={1}>

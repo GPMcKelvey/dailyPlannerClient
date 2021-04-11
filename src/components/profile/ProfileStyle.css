@@ -16,10 +16,16 @@
 
 #flex1 {
     margin-left: 2em;
+    max-width: 25vw;
     /* padding-top: .5em; */
 }
 
+#flex2 {
+    max-width: 30vw;
+}
+
 #flex3 {
+    max-width: 25vw;
     margin-right: 2em;
     padding-bottom: 2em;
 }

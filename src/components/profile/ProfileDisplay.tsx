@@ -17,7 +17,7 @@ const ProfileDisplay = (props: AcceptedProps) => {
     
 
         return (
-            <div style={{paddingTop: '5%'}}>
+            <div style={{paddingTop: '7%'}}>
                 {/* <h1 style={{textAlign: 'center'}}>Welcome to your Daily Planner</h1> */}
                 <div id='flexdiv'>
                 <div className='notes' id='flex1'>

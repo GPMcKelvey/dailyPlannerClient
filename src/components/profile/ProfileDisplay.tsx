@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProfileStyle.css';
 
-import AdminFetch from '../admin/AdminFetch';
+import AdminFetch from '../rbac/AdminFetch'
 import EventsFetch from '../eComps/EFetch';
 import NotesFetch from '../notes/Fetch';
 import TodosFetch from '../todos/Fetch';

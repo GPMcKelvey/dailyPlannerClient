@@ -94,11 +94,11 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
         if (prevState.eventTitle !== this.props.eventTitle){
             this.setState({
                 eventTitle: this.props.eventTitle,
-                    eventDescription: this.props.eventDescription,
-                    eventDate: this.props.eventDate,
-                    eventStartTime: this.props.eventStartTime,
-                    eventEndTime: this.props.eventEndTime,
-                    eventPrivacy: this.props.eventPrivacy 
+                eventDescription: this.props.eventDescription,
+                eventDate: this.props.eventDate,
+                eventStartTime: this.props.eventStartTime,
+                eventEndTime: this.props.eventEndTime,
+                eventPrivacy: this.props.eventPrivacy 
             })
         }
     }

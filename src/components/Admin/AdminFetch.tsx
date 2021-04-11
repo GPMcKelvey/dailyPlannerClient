@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
 
-import AdminDisplay from '../admin/AdminDisplay';
+import AdminDisplay from './AdminDisplay';
 
 type AcceptedProps = {
     sessionToken: any

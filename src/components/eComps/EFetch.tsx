@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
 
 import {Box} from '@material-ui/core';
 
@@ -23,7 +25,7 @@ export default class EventsFetch extends Component<AcceptedProps, EState> {
     }
 
     personalEventFetch = async () => {
-        await fetch(`http://localhost:3000/events/personal`, {
+        await fetch(`${APIURL}/events/personal`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type':

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import APIURL from '../helpers/environment';
 
 import HomeDisplay from './HomeDisplay';
 import Auth from './auth/Auth';
@@ -24,7 +25,7 @@ export default class HomePage extends Component<AcceptedProps, SearchState> {
     }
 
     publicEventFetch = async () => {
-       await fetch(`http://localhost:3000/events/public`)
+       await fetch(`${APIURL}/events/public`)
         .then(res => res.json())
         .then((json) => (
            console.log(json), 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './AuthStyle.css'
+import APIURL from '../../helpers/environment';
 
 import { Dialog, Button, withStyles, Theme, Box } from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -48,7 +49,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
             alert('Username needs to be more than 4 characters')
          } else if (this.regEx.test(this.state.username)){
 
-        fetch(`http://localhost:3000/users/signup`,{
+        fetch(`${APIURL}/users/signup`,{
              method: 'POST',
              body: JSON.stringify({
                  user:{

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
 import AdminDisplay from '../admin/AdminDisplay';
 
 type AcceptedProps = {
@@ -18,7 +20,7 @@ export default class AdminFetch extends Component<AcceptedProps, NotesState> {
     }
 
     adminFetch = async () => {
-        await fetch(`http://localhost:3000/users/userinfo`, {
+        await fetch(`${APIURL}/users/userinfo`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type':

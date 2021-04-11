@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
 
 import { Button, withStyles, Theme } from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -32,7 +34,7 @@ export default class AdminUpdate extends Component<AcceptedProps, adminState> {
     }
 
     deleteFetch = () => {
-        fetch(`http://localhost:3000/users/delete/${this.props.id}`, {
+        fetch(`${APIURL}/users/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-type': 'application/json',

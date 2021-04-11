@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
+
 import TodosCreate from './Create';
 import TodosDisplay from './Display';
 
@@ -19,7 +22,7 @@ export default class TodosFetch extends Component<AcceptedProps, NotesState> {
     }
 
     todosFetch = async () => {
-        await fetch(`http://localhost:3000/todos/`, {
+        await fetch(`${APIURL}/todos/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type':

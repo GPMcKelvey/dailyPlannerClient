@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
+
 import NotesCreate from './Create';
 import NotesDisplay from './Display';
 
@@ -19,7 +22,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
     }
 
     notesFetch = async () => {
-        await fetch(`http://localhost:3000/notes/`, {
+        await fetch(`${APIURL}/notes/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type':

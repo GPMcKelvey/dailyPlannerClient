@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
 
 import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -32,7 +34,7 @@ export default class TodosUpdate extends Component<AcceptedProps, updateState> {
     }
 
     deleteFetch = () => {
-        fetch(`http://localhost:3000/todos/delete/${this.props.id}`, {
+        fetch(`${APIURL}/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-type': 'application/json',
@@ -40,11 +42,6 @@ export default class TodosUpdate extends Component<AcceptedProps, updateState> {
             })
         }).then(() => this.props.todosFetch())
     }
-
-
-
-
-
 
     render() {
         return(

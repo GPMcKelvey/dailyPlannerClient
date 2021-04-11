@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import APIURL from '../../helpers/environment';
+
 
 import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -38,7 +40,7 @@ export default class NotesUpdate extends Component<AcceptedProps, updateState> {
     }
 
     updateFetch = () => {
-        fetch(`http://localhost:3000/notes/update/${this.props.id}`, {
+        fetch(`${APIURL}/notes/update/${this.props.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 notes: {
@@ -71,7 +73,7 @@ export default class NotesUpdate extends Component<AcceptedProps, updateState> {
     }
 
     deleteFetch = () => {
-        fetch(`http://localhost:3000/notes/delete/${this.props.id}`, {
+        fetch(`${APIURL}/notes/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-type': 'application/json',

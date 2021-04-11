@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './AuthStyle.css';
+import APIURL from '../../helpers/environment';
 
 import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -39,7 +40,7 @@ export default class Login extends Component<AcceptedProps, LoginState> {
     
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/users/login`, {
+        fetch(`${APIURL}/users/login`, {
              method: 'POST',
              body: JSON.stringify({
                  user:{

@@ -1,5 +1,7 @@
 import React, {Component, ChangeEvent} from 'react';
 import './NoteStyle.css';
+import APIURL from '../../helpers/environment';
+
 
 import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -36,7 +38,7 @@ export default class NotesCreate extends Component<AcceptedProps, CreateState> {
     }
 
     createFetch = () => {
-        fetch(`http://localhost:3000/notes/create`, {
+        fetch(`${APIURL}/notes/create`, {
             method: 'POST',
             body: JSON.stringify({
                 notes: {

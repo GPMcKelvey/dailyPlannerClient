@@ -1,5 +1,6 @@
 import React, {Component, ChangeEvent} from 'react';
 import './EStyle.css';
+import APIURL from '../../helpers/environment';
 
 import {Dialog, Button, withStyles, Theme, Box, Switch} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -57,7 +58,7 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
     }
 
     createFetch = () => {
-        fetch(`http://localhost:3000/events/create`, {
+        fetch(`${APIURL}/events/create`, {
             method: 'POST',
             body: JSON.stringify({
                 events: {

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './EStyle.css';
+import APIURL from '../../helpers/environment';
+
 
 import {Dialog, Button, withStyles, Theme, Box, Switch} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -64,7 +66,7 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
     }
 
     updateFetch = () => {
-        fetch(`http://localhost:3000/events/update/${this.props.id}`, {
+        fetch(`${APIURL}/events/update/${this.props.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 events: {
@@ -104,7 +106,7 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
     }
 
     deleteFetch = () => {
-        fetch(`http://localhost:3000/events/delete/${this.props.id}`, {
+        fetch(`${APIURL}/events/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-type': 'application/json',

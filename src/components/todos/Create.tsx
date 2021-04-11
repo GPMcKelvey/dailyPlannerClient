@@ -1,5 +1,7 @@
 import React, {Component, ChangeEvent} from 'react';
 import './TodoStyle.css';
+import APIURL from '../../helpers/environment';
+
 
 import {Button, withStyles, Theme, Box, Input} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -32,7 +34,7 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
     }
 
     createFetch = () => {
-        fetch(`http://localhost:3000/todos/create`, {
+        fetch(`${APIURL}/todos/create`, {
             method: 'POST',
             body: JSON.stringify({
                 todos: {

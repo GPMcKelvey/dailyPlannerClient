@@ -1,0 +1,42 @@
+.create {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#createDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+}
+
+.update {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#updateDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+}
+
+#ectpB {
+    border: 5px;
+    border-style: solid;
+    border-color: rgb(200, 174, 224);
+    height: fit-content;
+    border-radius: 10px;
+    /* background-color: rgb(200, 174, 224); */
+    padding: 5%;
+}
+
+#eCard {
+    width: 30vw;
+    background-color:rgb(200, 174, 224);
+    color: rgba(75, 43, 105, 0.993);
+    /* padding-bottom: 5em; */
+}
+
+h2 {
+    color: rgba(75, 43, 105, 0.993);
+}

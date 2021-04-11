@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AdminDisplay from './AdminDisplay';
+import AdminDisplay from '../admin/AdminDisplay';
 
 type AcceptedProps = {
     sessionToken: any

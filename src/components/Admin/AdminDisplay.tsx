@@ -3,7 +3,7 @@ import './AdminStyle.css';
 
 import { Box } from '@material-ui/core';
 
-import AdminUpdate from './AdminDelete';
+import AdminUpdate from '../admin/AdminDelete';
 
 
 

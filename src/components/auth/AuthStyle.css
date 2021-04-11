@@ -1,0 +1,34 @@
+.login {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#loginDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke
+}
+
+.signup {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#signupDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke
+}
+
+.appBar {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    border: 5px;
+    border-style: solid;
+    border-color: rgb(200, 174, 224);
+    height: fit-content;
+    /* border-radius: 5px; */
+    background-color: rgb(200, 174, 224);
+    /* padding: 5%; */
+}

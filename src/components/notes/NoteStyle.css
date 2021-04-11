@@ -1,0 +1,36 @@
+.create {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#createDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+}
+
+#btpB {
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+    padding: 5%;
+}
+
+.update {
+    padding: 5em;
+    text-align: center;
+    margin: 5em;
+}
+
+#updateDiv{
+    background-color: rgb(200, 174, 224);
+    color: whitesmoke;
+}
+
+h2 {
+    color: rgba(75, 43, 105, 0.992);
+}
+
+p {
+    font-size: 24px;
+    color: rgba(75, 43, 105, 0.993);
+}

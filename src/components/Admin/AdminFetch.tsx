@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import NotesCreate from './Create';
-import NotesDisplay from './Display';
+import AdminDisplay from './AdminDisplay';
 
 type AcceptedProps = {
-    sessionToken: string
+    sessionToken: any
 }
 
 type NotesState = {
     results: []
 }
 
-export default class NotesFetch extends Component<AcceptedProps, NotesState> {
+export default class AdminFetch extends Component<AcceptedProps, NotesState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
@@ -18,8 +17,8 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
         }
     }
 
-    notesFetch = async () => {
-        await fetch(`http://localhost:3000/notes/`, {
+    adminFetch = async () => {
+        await fetch(`http://localhost:3000/users/userinfo`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type':
@@ -31,7 +30,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
          .then((json) => (
             console.log(json), 
             this.setState({
-                 results: json.note
+                 results: json.users
              })
              
          ))
@@ -39,14 +38,13 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
      }
  
      componentDidMount(){
-         this.notesFetch();
+         this.adminFetch();
      }
 
     render() {
         return (
             <div>
-                <NotesCreate sessionToken={this.props.sessionToken} notesFetch={this.notesFetch} />
-                <NotesDisplay results={this.state.results} sessionToken={this.props.sessionToken} notesFetch={this.notesFetch}/>
+                <AdminDisplay results={this.state.results} sessionToken={this.props.sessionToken} adminFetch={this.adminFetch} />
             </div>
         )
     }

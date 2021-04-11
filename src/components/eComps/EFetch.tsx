@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
-import NotesCreate from './Create';
-import NotesDisplay from './Display';
+
+import {Box} from '@material-ui/core';
+
+import ECreate from './ECreate';
+import EventsDisplay from './EDisplay';
+import './EStyle.css';
 
 type AcceptedProps = {
     sessionToken: string
 }
 
-type NotesState = {
+type EState = {
     results: []
 }
 
-export default class NotesFetch extends Component<AcceptedProps, NotesState> {
+export default class EventsFetch extends Component<AcceptedProps, EState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
@@ -18,8 +22,8 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
         }
     }
 
-    notesFetch = async () => {
-        await fetch(`http://localhost:3000/notes/`, {
+    personalEventFetch = async () => {
+        await fetch(`http://localhost:3000/events/personal`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type':
@@ -31,7 +35,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
          .then((json) => (
             console.log(json), 
             this.setState({
-                 results: json.note
+                 results: json.event
              })
              
          ))
@@ -39,14 +43,16 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
      }
  
      componentDidMount(){
-         this.notesFetch();
+         this.personalEventFetch();
      }
 
     render() {
         return (
             <div>
-                <NotesCreate sessionToken={this.props.sessionToken} notesFetch={this.notesFetch} />
-                <NotesDisplay results={this.state.results} sessionToken={this.props.sessionToken} notesFetch={this.notesFetch}/>
+                <Box pb={2}>
+                <ECreate sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
+                </Box>
+                <EventsDisplay results={this.state.results} sessionToken={this.props.sessionToken} personalEventFetch={this.personalEventFetch}/>
             </div>
         )
     }

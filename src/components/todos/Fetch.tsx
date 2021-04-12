@@ -4,16 +4,18 @@ import APIURL from '../../helpers/environment';
 
 import TodosCreate from './Create';
 import TodosDisplay from './Display';
+import { ITodos } from '../Interfaces';
 
 type AcceptedProps = {
-    sessionToken: string
+    sessionToken: string;
 }
 
-type NotesState = {
-    results: []
+type TodosState = {
+    results: ITodos[];
+    
 }
 
-export default class TodosFetch extends Component<AcceptedProps, NotesState> {
+export default class TodosFetch extends Component<AcceptedProps, TodosState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
@@ -21,7 +23,7 @@ export default class TodosFetch extends Component<AcceptedProps, NotesState> {
         }
     }
 
-    todosFetch = async () => {
+    todosFetch = async (): Promise<any> => {
         await fetch(`${APIURL}/todos/`, {
             method: 'GET',
             headers: new Headers({

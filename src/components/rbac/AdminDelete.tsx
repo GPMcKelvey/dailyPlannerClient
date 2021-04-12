@@ -16,9 +16,9 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    sessionToken: string,
-    adminFetch: any,
-    id: string
+    sessionToken: string;
+    adminFetch:() => Promise<any>;
+    id: string;
 }
 
 type adminState = {
@@ -33,7 +33,7 @@ export default class AdminUpdate extends Component<AcceptedProps, adminState> {
         }
     }
 
-    deleteFetch = () => {
+    deleteFetch = (): void => {
         fetch(`${APIURL}/users/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({

@@ -16,8 +16,8 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: any,
-    exitHandler: any,
+    updateToken: (newToken: string) => void,
+    exitHandler: () => void,
     loginModal: boolean,
 }
 
@@ -38,7 +38,7 @@ export default class Login extends Component<AcceptedProps, LoginState> {
     }
 
     
-    handleSubmit = (event: any) => {
+    handleSubmit = (event: React.FormEvent): void => {
         event.preventDefault();
         fetch(`${APIURL}/users/login`, {
              method: 'POST',

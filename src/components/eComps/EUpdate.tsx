@@ -30,7 +30,7 @@ const PurpleSwitch = withStyles({
 
 type AcceptedProps = {
     sessionToken: string,
-    personalEventFetch: any,
+    personalEventFetch: () => Promise<any>,
     eventDate: Date,
     eventDescription: string,
     eventEndTime: number,
@@ -65,7 +65,7 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
         }
     }
 
-    updateFetch = () => {
+    updateFetch = (): void => {
         fetch(`${APIURL}/events/update/${this.props.id}`, {
             method: 'PUT',
             body: JSON.stringify({

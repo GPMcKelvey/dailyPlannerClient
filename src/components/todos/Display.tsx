@@ -10,13 +10,13 @@ type AcceptedProps = {
     id: string
 }
 
-const TodosDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, todosFetch: any}) => {
+const TodosDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, todosFetch:() => Promise<any>}) => {
 
     let result = props.results;
     console.log(result);
     return (
         <div>
-            {result.map((result: AcceptedProps, index: any) => {
+            {result.map((result: AcceptedProps, index: number) => {
                 return(    
                 <div key={index}>
                 <Box display='flex' justifyContent='center' alignItems='center'>

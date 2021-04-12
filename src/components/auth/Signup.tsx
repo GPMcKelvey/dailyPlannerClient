@@ -16,9 +16,9 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: any,
-    exitHandler: any,
-    signupModal: boolean,
+    updateToken: (newToken: string) => void;
+    exitHandler: () => void;
+    signupModal: boolean;
 }
 
 type SignupState = {
@@ -39,7 +39,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
 
     regEx = new RegExp (/[a-z]{1,10}[0-9]{1,10}/i);
 
-    handleSubmit = (event: any) => {
+    handleSubmit = (event: React.FormEvent): void => {
         event.preventDefault();
 
         if(this.state.password.length<5){
@@ -72,19 +72,13 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
       }
     }
 
-    inputHandler = (e: any) => {
+    inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         this.setState({
                 ...this.state,
                 [e.target.name]: value,
             })
     }
-
-    // exitHandler = (e: any) => {
-    //     this.setState({
-    //         modal: false
-    //     })
-    // }
 
     render() {
         return (

@@ -17,8 +17,8 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    sessionToken: string,
-    notesFetch: any
+    sessionToken: string;
+    notesFetch: () => Promise<any>;
 }
 
 type CreateState = {
@@ -37,7 +37,7 @@ export default class NotesCreate extends Component<AcceptedProps, CreateState> {
         }
     }
 
-    createFetch = () => {
+    createFetch = (): void => {
         fetch(`${APIURL}/notes/create`, {
             method: 'POST',
             body: JSON.stringify({
@@ -75,7 +75,7 @@ export default class NotesCreate extends Component<AcceptedProps, CreateState> {
             modal: true
         })
     }
-    exitHandler = (e: any) => {
+    exitHandler = () => {
         this.setState({
             modal: false
         })

@@ -57,7 +57,7 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
         }
     }
 
-    createFetch = () => {
+    createFetch = () : void => {
         fetch(`${APIURL}/events/create`, {
             method: 'POST',
             body: JSON.stringify({

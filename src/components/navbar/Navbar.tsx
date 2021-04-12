@@ -21,8 +21,8 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: any,
-    clearToken: any,
+    updateToken: (newToken: string) => void,
+    clearToken: () => void,
     sessionToken: string
 }
 

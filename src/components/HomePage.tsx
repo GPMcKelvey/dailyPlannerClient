@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import APIURL from '../helpers/environment';
+import {IEvents} from './Interfaces';
 
 import HomeDisplay from './HomeDisplay';
 import Auth from './auth/Auth';
 
 
 type AcceptedProps = {
-    updateToken: any,
+    updateToken: (newToken: string) => void,
     sessionToken: string
 }
 
 type SearchState = {
-    results: [],
+    results: IEvents[],
     auth: boolean
 }
 
@@ -24,7 +25,7 @@ export default class HomePage extends Component<AcceptedProps, SearchState> {
         }
     }
 
-    publicEventFetch = async () => {
+    publicEventFetch = async (): Promise<any> => {
        await fetch(`${APIURL}/events/public`)
         .then(res => res.json())
         .then((json) => (

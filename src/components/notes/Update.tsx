@@ -17,7 +17,7 @@ const ColorButton = withStyles((theme: Theme) => ({
 
 type AcceptedProps = {
     sessionToken: string,
-    notesFetch: any,
+    notesFetch: () => Promise<any>,
     title: string,
     content: string,
     id: string
@@ -39,7 +39,7 @@ export default class NotesUpdate extends Component<AcceptedProps, updateState> {
         }
     }
 
-    updateFetch = () => {
+    updateFetch = () : void => {
         fetch(`${APIURL}/notes/update/${this.props.id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -72,7 +72,7 @@ export default class NotesUpdate extends Component<AcceptedProps, updateState> {
         }
     }
 
-    deleteFetch = () => {
+    deleteFetch = () : void => {
         fetch(`${APIURL}/notes/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({

@@ -7,9 +7,9 @@ import NotesFetch from '../notes/Fetch';
 import TodosFetch from '../todos/Fetch';
 
 type AcceptedProps = {
-    sessionToken: string,
-    clearToken: any,
-    updateToken: any
+    sessionToken: string;
+    clearToken: () => void;
+    updateToken: (newToken: string) => void;
 }
 const ProfileDisplay = (props: AcceptedProps) => {
     

@@ -12,7 +12,7 @@ type AcceptedProps = {
     id: string
 }
 
-const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, adminFetch: any}) => {
+const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, adminFetch: () => Promise<any>}) => {
 
     let result = props.results;
     console.log(result);

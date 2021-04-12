@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
+import {IAdmin} from '../Interfaces';
 
 import AdminDisplay from './AdminDisplay';
 
 type AcceptedProps = {
-    sessionToken: any
+    sessionToken: string;
 }
 
-type NotesState = {
-    results: []
+type AdminState = {
+    results: IAdmin[];
 }
 
-export default class AdminFetch extends Component<AcceptedProps, NotesState> {
+export default class AdminFetch extends Component<AcceptedProps, AdminState> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
@@ -19,7 +20,7 @@ export default class AdminFetch extends Component<AcceptedProps, NotesState> {
         }
     }
 
-    adminFetch = async () => {
+    adminFetch = async (): Promise<any> => {
         await fetch(`${APIURL}/users/userinfo`, {
             method: 'GET',
             headers: new Headers({

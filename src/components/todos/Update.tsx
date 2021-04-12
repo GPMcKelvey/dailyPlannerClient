@@ -16,13 +16,13 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    sessionToken: string,
-    todosFetch: any,
-    id: string
+    sessionToken: string;
+    todosFetch:() => Promise<any>;
+    id: string;
 }
 
 type updateState = {
-    task: string
+    task: string;
 }
 
 export default class TodosUpdate extends Component<AcceptedProps, updateState> {
@@ -33,7 +33,7 @@ export default class TodosUpdate extends Component<AcceptedProps, updateState> {
         }
     }
 
-    deleteFetch = () => {
+    deleteFetch = (): void => {
         fetch(`${APIURL}/todos/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({

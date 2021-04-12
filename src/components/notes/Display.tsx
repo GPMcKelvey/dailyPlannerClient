@@ -7,7 +7,7 @@ type AcceptedProps = {
     id: string
 }
 
-const NotesDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, notesFetch: any}) => {
+const NotesDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, notesFetch: () =>  Promise<any>}) => {
 
     let result = props.results;
     console.log(result);

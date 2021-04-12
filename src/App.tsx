@@ -22,14 +22,14 @@ function App() {
     }
   }, [])
 
-  const updateToken = (newToken: string) => {
+  const updateToken = (newToken: string): void => {
     console.log(newToken);
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
   }
   console.log(sessionToken);
 
-  const authorizedViews = () => {
+  const authorizedViews = () : any => {
     return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') !== undefined ? <Profile updateToken={updateToken} sessionToken={sessionToken} clearToken={clearToken} /> : <HomePage updateToken={updateToken} sessionToken={sessionToken}/>)
   }
   return (

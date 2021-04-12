@@ -17,8 +17,8 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    sessionToken: string,
-    todosFetch: any
+    sessionToken: string;
+    todosFetch:() => Promise<any>;
 }
 
 type CreateState = {
@@ -33,7 +33,7 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
         }
     }
 
-    createFetch = (e: React.FormEvent) => {
+    createFetch = (e: React.FormEvent): void => {
         e.preventDefault();
         fetch(`${APIURL}/todos/create`, {
             method: 'POST',

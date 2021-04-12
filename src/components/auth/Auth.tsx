@@ -18,7 +18,7 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: string,
+    updateToken: (newToken: string) => void,
 }
 
 type AuthState = {
@@ -27,7 +27,7 @@ type AuthState = {
 }
 
 export default class Auth extends Component<AcceptedProps, AuthState> {
-    constructor (props: any) {
+    constructor (props: AcceptedProps) {
         super(props)
         this.state = {
             loginModal: false,
@@ -47,7 +47,7 @@ export default class Auth extends Component<AcceptedProps, AuthState> {
         })
     }
 
-    exitHandler = (e: any) => {
+    exitHandler = () => {
         this.setState({
             loginModal: false,
             signupModal: false

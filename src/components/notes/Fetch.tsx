@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
+import {INotes} from '../Interfaces';
 
 
 import NotesCreate from './Create';
@@ -10,7 +11,7 @@ type AcceptedProps = {
 }
 
 type NotesState = {
-    results: []
+    results: INotes[]
 }
 
 export default class NotesFetch extends Component<AcceptedProps, NotesState> {
@@ -21,7 +22,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
         }
     }
 
-    notesFetch = async () => {
+    notesFetch = async (): Promise<any> => {
         await fetch(`${APIURL}/notes/`, {
             method: 'GET',
             headers: new Headers({

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, CardContent, CardActions, Box } from '@material-ui/core';
+import { Card, CardContent, Box } from '@material-ui/core';
 
 import EventsUpdate from './EUpdate';
 
@@ -14,7 +14,7 @@ type AcceptedProps = {
     id: string
 }
 
-const EventsDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, personalEventFetch: any}) => {
+const EventsDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, personalEventFetch: () => Promise<any>}) => {
 
     let result = props.results;
     console.log(result);

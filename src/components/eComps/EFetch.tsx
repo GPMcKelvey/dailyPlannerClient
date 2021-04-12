@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
-
+import './EStyle.css';
+import {IEvents} from '../Interfaces';
 
 import {Box} from '@material-ui/core';
 
 import ECreate from './ECreate';
 import EventsDisplay from './EDisplay';
-import './EStyle.css';
 
 type AcceptedProps = {
     sessionToken: string
 }
 
 type EState = {
-    results: []
+    results: IEvents[]
 }
 
 export default class EventsFetch extends Component<AcceptedProps, EState> {
@@ -24,7 +24,7 @@ export default class EventsFetch extends Component<AcceptedProps, EState> {
         }
     }
 
-    personalEventFetch = async () => {
+    personalEventFetch = async (): Promise<any> => {
         await fetch(`${APIURL}/events/personal`, {
             method: 'GET',
             headers: new Headers({

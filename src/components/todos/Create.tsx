@@ -33,7 +33,8 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
         }
     }
 
-    createFetch = () => {
+    createFetch = (e: React.FormEvent) => {
+        e.preventDefault();
         fetch(`${APIURL}/todos/create`, {
             method: 'POST',
             body: JSON.stringify({
@@ -66,14 +67,14 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
     render() {
         return(
             <div className='createTodo'>
-                <form>
+                <form onSubmit={this.createFetch}>
                 <Box display='flex' justifyContent='center' id='createTodoDiv'>
                     <Box m={1}>
                     <label>New Task: </label>
                     <Input id='task' name='task' type='text' onChange={this.inputHandler} value={this.state.task}></Input>
                     </Box>
                 <Box m={1}>
-                    <ColorButton onClick={this.createFetch}>Add Task</ColorButton></Box>
+                    <ColorButton type='submit'>Add Task</ColorButton></Box>
                     </Box>
                 </form>
             </div>

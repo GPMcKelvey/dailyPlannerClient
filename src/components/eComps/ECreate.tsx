@@ -151,7 +151,7 @@ export default class ECreate extends Component<AcceptedProps, CreateState> {
                         <input id='eventStartTime' name='eventStartTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
                         <Box m={1}>
                         <label>End Time: </label>
-                        <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
+                        <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventEndTime}></input></Box>
                         </Box>
                         <br/>
                         <label>Private: </label>

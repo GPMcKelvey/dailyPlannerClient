@@ -57,7 +57,7 @@ export default class Login extends Component<AcceptedProps, LoginState> {
    
             this.props.updateToken(data.sessionToken);
         })
-        this.setState({modal:false});
+        this.props.exitHandler();
     }
 
     inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {

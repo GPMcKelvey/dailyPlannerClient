@@ -66,7 +66,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
    
              this.props.updateToken(data.sessionToken);
         })
-        this.setState({modal: false});
+        this.props.exitHandler();
     } else {
         alert('Username needs a number')
       }

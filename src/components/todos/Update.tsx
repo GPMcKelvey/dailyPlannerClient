@@ -34,10 +34,10 @@ export default class TodosUpdate extends Component<AcceptedProps, updateState> {
     }
 
     deleteFetch = () => {
-        fetch(`${APIURL}/delete/${this.props.id}`, {
+        fetch(`${APIURL}/todos/delete/${this.props.id}`, {
             method: 'DELETE',
             headers: new Headers ({
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': this.props.sessionToken
             })
         }).then(() => this.props.todosFetch())

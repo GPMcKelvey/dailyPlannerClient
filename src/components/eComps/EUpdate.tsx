@@ -180,7 +180,7 @@ export default class EventsUpdate extends Component<AcceptedProps, updateState> 
                         <input id='eventStartTime' name='eventStartTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
                         <Box m={1}>
                         <label>End Time: </label>
-                        <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventStartTime}></input></Box>
+                        <input id='eventEndTime' name='eventEndTime' type='time' onChange={this.inputHandler} value={this.state.eventEndTime}></input></Box>
                         </Box>
                         <label>Private: </label>
                         <PurpleSwitch checked={this.state.eventPrivacy} onChange={this.switchHandler}></PurpleSwitch>

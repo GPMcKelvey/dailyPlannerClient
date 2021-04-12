@@ -70,7 +70,7 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
                 <Box display='flex' justifyContent='center' id='createTodoDiv'>
                     <Box m={1}>
                     <label>New Task: </label>
-                    <Input id='task' name='task' type='text' onChange={this.inputHandler}></Input>
+                    <Input id='task' name='task' type='text' onChange={this.inputHandler} value={this.state.task}></Input>
                     </Box>
                 <Box m={1}>
                     <ColorButton onClick={this.createFetch}>Add Task</ColorButton></Box>

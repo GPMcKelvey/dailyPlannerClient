@@ -66,14 +66,14 @@ export default class TodosCreate extends Component<AcceptedProps, CreateState> {
     render() {
         return(
             <div className='createTodo'>
-                <form onSubmit={this.createFetch}>
+                <form>
                 <Box display='flex' justifyContent='center' id='createTodoDiv'>
                     <Box m={1}>
                     <label>New Task: </label>
                     <Input id='task' name='task' type='text' onChange={this.inputHandler}></Input>
                     </Box>
                 <Box m={1}>
-                    <ColorButton type='submit'>Add Task</ColorButton></Box>
+                    <ColorButton onClick={this.createFetch}>Add Task</ColorButton></Box>
                     </Box>
                 </form>
             </div>

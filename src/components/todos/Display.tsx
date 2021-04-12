@@ -16,8 +16,9 @@ const TodosDisplay = (props: {results: Array<AcceptedProps>, sessionToken: strin
     console.log(result);
     return (
         <div>
-            {result.map((result: AcceptedProps) => {
+            {result.map((result: AcceptedProps, index: any) => {
                 return(    
+                <div key={index}>
                 <Box display='flex' justifyContent='center' alignItems='center'>
                     <Box m={1} pb={.5}>
                    <h2>{result.task}</h2>
@@ -26,6 +27,7 @@ const TodosDisplay = (props: {results: Array<AcceptedProps>, sessionToken: strin
                    <TodosUpdate sessionToken={props.sessionToken} id={result.id} todosFetch={props.todosFetch}/>
                    </Box>
                </Box>
+               </div>
                )
             })}
         </div>

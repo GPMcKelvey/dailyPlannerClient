@@ -25,8 +25,7 @@ export default class TodosFetch extends Component<AcceptedProps, NotesState> {
         await fetch(`${APIURL}/todos/`, {
             method: 'GET',
             headers: new Headers({
-                'Content-Type':
-                'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': this.props.sessionToken
             })
         })

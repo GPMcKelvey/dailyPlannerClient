@@ -37,7 +37,7 @@ export default class Signup extends Component<AcceptedProps, SignupState> {
         }
     }
 
-    regEx = new RegExp (/[a-z]{1,10}[0-9]{1,10}/i);
+    regEx: RegExp = new RegExp (/[a-z]{1,10}[0-9]{1,10}/i);
 
     handleSubmit = (event: React.FormEvent): void => {
         event.preventDefault();

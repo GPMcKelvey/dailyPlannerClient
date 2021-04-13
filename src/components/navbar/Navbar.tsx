@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './navbar.css';
 
@@ -55,6 +55,10 @@ const NavBar = (props: AcceptedProps) => {
                     </AppBar>
                     <div>
                         <Switch>
+                        <Route exact path='/'>
+                            {localStorage.token ? <Redirect to='/ProfileDisplay'/> : null}
+                            <ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/>
+                        </Route>
                             <Route exact path="/HomePage"><HomePage updateToken={props.updateToken} sessionToken={props.sessionToken}/></Route>
                             <Route exact path='/ProfileDisplay'><ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/></Route>
                         </Switch>

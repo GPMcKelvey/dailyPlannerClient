@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Button, withStyles, Theme, Box, AppBar, Typography} from '@material-ui/core';
-import {purple} from '@material-ui/core/colors';
+import { Button, withStyles, Theme, Box, AppBar } from '@material-ui/core';
+import { purple } from '@material-ui/core/colors';
 
 import Login from './Login';
 import Signup from './Signup';

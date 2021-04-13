@@ -35,30 +35,31 @@ const NavBar = (props: AcceptedProps) => {
                     <Box className='navbar' display='flex'>
                         <Box pt={2} pr={45} flexGrow= '1'>
                             <img src={dailyPlanner} style={{maxHeight: '75%'}}></img>
-                        {/* <Typography>Daily Planner</Typography> */}
                         </Box>
                         <Box display='flex' flexGrow= '7' alignSelf='center' justifySelf='center'>
-                        <Box m={2} p={2}>
-                        <ColorButton>
-                            <Link style={{textDecoration: 'none', color: 'white'}} to="/HomePage" className="site-link">Home</Link>
-                        </ColorButton>
+                            <Box m={2} p={2}>
+                                <ColorButton>
+                                    <Link style={{textDecoration: 'none', color: 'white'}} to="/HomePage" className="site-link">Home</Link>
+                                </ColorButton>
+                            </Box>
+                            <Box m={2} p={2}>
+                                <ColorButton>
+                                    <Link style={{textDecoration: 'none', color: 'white'}} to='/ProfileDisplay' className='site-link'>Profile</Link>
+                                </ColorButton>
+                            </Box>
                         </Box>
                         <Box m={2} p={2}>
-                        <ColorButton>
-                            <Link style={{textDecoration: 'none', color: 'white'}} to='/ProfileDisplay' className='site-link'>Profile</Link>
-                        </ColorButton>
+                            <ColorButton onClick={props.clearToken}>Log Out</ColorButton>
                         </Box>
-                        </Box>
-                        <Box m={2} p={2}>
-                        <ColorButton onClick={props.clearToken}>Log Out</ColorButton></Box>
                     </Box>
                     </AppBar>
                     <div>
                         <Switch>
-                        <Route exact path='/'>
-                            {localStorage.token ? <Redirect to='/ProfileDisplay'/> : null}
-                            <ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/>
-                        </Route>
+                            {localStorage.token === props.sessionToken ?
+                            <Route exact path='/'>
+                                <Redirect to='/ProfileDisplay'/> 
+                                <ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/>
+                            </Route> : null}
                             <Route exact path="/HomePage"><HomePage updateToken={props.updateToken} sessionToken={props.sessionToken}/></Route>
                             <Route exact path='/ProfileDisplay'><ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/></Route>
                         </Switch>

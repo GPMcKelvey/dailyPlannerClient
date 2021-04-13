@@ -21,7 +21,7 @@ export default class AdminFetch extends Component<AcceptedProps, AdminState> {
         }
     }
 
-    adminFetch = async (): Promise<any> => {
+    adminFetch = async (): Promise<void> => {
         await fetch(`${APIURL}/users/userinfo`, {
             method: 'GET',
             headers: new Headers({

@@ -30,7 +30,7 @@ const PurpleSwitch = withStyles({
 
 type AcceptedProps = {
     sessionToken: string;
-    personalEventFetch: any;
+    personalEventFetch: () => Promise<void>;
 }
 
 type CreateState = {

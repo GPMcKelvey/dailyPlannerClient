@@ -17,7 +17,7 @@ const ColorButton = withStyles((theme: Theme) => ({
 
 type AcceptedProps = {
     sessionToken: string;
-    adminFetch:() => Promise<any>;
+    adminFetch:() => Promise<void>;
     id: string;
 }
 

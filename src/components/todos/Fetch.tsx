@@ -23,7 +23,7 @@ export default class TodosFetch extends Component<AcceptedProps, TodosState> {
         }
     }
 
-    todosFetch = async (): Promise<any> => {
+    todosFetch = async (): Promise<void> => {
         await fetch(`${APIURL}/todos/`, {
             method: 'GET',
             headers: new Headers({

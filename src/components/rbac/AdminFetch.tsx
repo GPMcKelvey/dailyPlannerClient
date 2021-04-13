@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
 import {IAdmin} from '../Interfaces';
+import './AdminStyle.css';
 
 import AdminDisplay from './AdminDisplay';
 

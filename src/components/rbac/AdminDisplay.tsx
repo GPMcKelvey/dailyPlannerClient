@@ -19,7 +19,7 @@ const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: strin
     return (
         <div>
         {props.results !== undefined ?
-            <div>
+            <div className='notes' id='usersDisp'>
             <h1>Users List</h1>
            {result.map((result: AcceptedProps) => {
                 return(    

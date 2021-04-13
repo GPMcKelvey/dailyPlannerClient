@@ -1,3 +1,18 @@
 h1 {
     color: rgba(75, 43, 105, 0.993);
 }
+
+.notes {
+    border: 5px;
+    border-style: solid;
+    border-color: rgb(200, 174, 224);
+    height: fit-content;
+    border-radius: 10px;
+}
+
+#usersDisp {
+    margin: auto;
+    max-width: 30vw;
+    margin-bottom: 5%;
+    margin-top: 2.5%;
+}

@@ -29,13 +29,3 @@
     margin-right: 2em;
     padding-bottom: 2em;
 }
-
-#usersDisp {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 30vw;
-    margin-bottom: 5%;
-    margin-top: 2.5%;
-}

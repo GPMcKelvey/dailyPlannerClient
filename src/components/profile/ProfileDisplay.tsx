@@ -28,9 +28,7 @@ const ProfileDisplay = (props: AcceptedProps) => {
                         <TodosFetch sessionToken={props.sessionToken} />
                     </div>
                 </div>
-                <div className='notes' id='usersDisp'>
-                    <AdminFetch sessionToken={props.sessionToken} />
-                </div> 
+                <AdminFetch sessionToken={props.sessionToken} />
             </div>
         )
 

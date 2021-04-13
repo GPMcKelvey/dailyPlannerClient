@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {IUser} from '../Interfaces';
 
 import { Button, withStyles, Theme, Box, AppBar } from '@material-ui/core';
 import { purple } from '@material-ui/core/colors';
@@ -18,12 +19,12 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: (newToken: string) => void,
+    updateToken: (data: IUser) => void;
 }
 
 type AuthState = {
-    loginModal: boolean,
-    signupModal: boolean
+    loginModal: boolean;
+    signupModal: boolean;
 }
 
 export default class Auth extends Component<AcceptedProps, AuthState> {
@@ -71,7 +72,7 @@ export default class Auth extends Component<AcceptedProps, AuthState> {
                     </Box>
                 </Box>
                 </AppBar>
-                {this.state.loginModal ? <Login updateToken={this.props.updateToken} exitHandler={this.exitHandler} loginModal={this.state.loginModal}/> : null}
+                {this.state.loginModal ? <Login updateToken={this.props.updateToken} exitHandler={this.exitHandler} loginModal={this.state.loginModal} /> : null}
                 {this.state.signupModal ? <Signup updateToken={this.props.updateToken} exitHandler={this.exitHandler} signupModal={this.state.signupModal} /> : null}
             </div>
         )

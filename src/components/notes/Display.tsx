@@ -2,9 +2,9 @@ import React from 'react';
 import NotesUpdate from './Update';
 
 type AcceptedProps = {
-    title: string,
-    content: string,
-    id: string
+    title: string;
+    content: string;
+    id: string;
 }
 
 const NotesDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, notesFetch: () =>  Promise<any>}) => {

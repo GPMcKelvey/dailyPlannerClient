@@ -6,11 +6,11 @@ import { Card, CardContent, CardActions, Box } from '@material-ui/core';
 
 
 type AcceptedProps = {
-    eventDate: Date,
-    eventDescription: string,
-    eventEndTime: number,
-    eventStartTime: number,
-    eventTitle: string
+    eventDate: Date;
+    eventDescription: string;
+    eventEndTime: number;
+    eventStartTime: number;
+    eventTitle: string;
 }
 
 const HomeDisplay = (props: {results: Array<AcceptedProps>}) => {

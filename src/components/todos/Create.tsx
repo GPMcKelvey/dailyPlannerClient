@@ -18,11 +18,11 @@ const ColorButton = withStyles((theme: Theme) => ({
 
 type AcceptedProps = {
     sessionToken: string;
-    todosFetch:() => Promise<any>;
+    todosFetch:() => Promise<void>;
 }
 
 type CreateState = {
-    task: string
+    task: string;
 }
 
 export default class TodosCreate extends Component<AcceptedProps, CreateState> {

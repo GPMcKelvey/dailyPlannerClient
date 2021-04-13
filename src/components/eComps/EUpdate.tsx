@@ -29,25 +29,25 @@ const PurpleSwitch = withStyles({
   })(Switch);
 
 type AcceptedProps = {
-    sessionToken: string,
-    personalEventFetch: () => Promise<any>,
-    eventDate: Date,
-    eventDescription: string,
-    eventEndTime: number,
-    eventStartTime: number,
-    eventTitle: string,
-    eventPrivacy: boolean,
-    id: string
+    sessionToken: string;
+    personalEventFetch: () => Promise<void>;
+    eventDate: Date;
+    eventDescription: string;
+    eventEndTime: number;
+    eventStartTime: number;
+    eventTitle: string;
+    eventPrivacy: boolean;
+    id: string;
 }
 
 type updateState = {
-    eventDate: Date,
-    eventDescription?: string,
-    eventEndTime?: number,
-    eventStartTime?: number,
-    eventTitle: string,
-    eventPrivacy: boolean,
-    modal: boolean
+    eventDate: Date;
+    eventDescription?: string;
+    eventEndTime?: number;
+    eventStartTime?: number;
+    eventTitle: string;
+    eventPrivacy: boolean;
+    modal: boolean;
 
 }
 

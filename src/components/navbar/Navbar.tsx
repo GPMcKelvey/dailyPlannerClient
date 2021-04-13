@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './navbar.css';
+import {IUser} from '../Interfaces';
 
 import {Button, withStyles, Theme, Box, AppBar, Typography} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -21,9 +22,9 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: (newToken: string) => void,
-    clearToken: () => void,
-    sessionToken: string
+    updateToken: (data: IUser) => void;
+    clearToken: () => void;
+    sessionToken: string;
 }
 
 const NavBar = (props: AcceptedProps) => {
@@ -58,10 +59,10 @@ const NavBar = (props: AcceptedProps) => {
                             {localStorage.token === props.sessionToken ?
                             <Route exact path='/'>
                                 <Redirect to='/ProfileDisplay'/> 
-                                <ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/>
+                                <ProfileDisplay clearToken={props.clearToken} sessionToken={props.sessionToken}/>
                             </Route> : null}
-                            <Route exact path="/HomePage"><HomePage updateToken={props.updateToken} sessionToken={props.sessionToken}/></Route>
-                            <Route exact path='/ProfileDisplay'><ProfileDisplay updateToken={props.updateToken} clearToken={props.clearToken} sessionToken={props.sessionToken}/></Route>
+                            <Route exact path="/HomePage"><HomePage updateToken={props.updateToken} sessionToken={props.sessionToken} /></Route>
+                            <Route exact path='/ProfileDisplay'><ProfileDisplay clearToken={props.clearToken} sessionToken={props.sessionToken}/></Route>
                         </Switch>
                     </div>
                 </Router>

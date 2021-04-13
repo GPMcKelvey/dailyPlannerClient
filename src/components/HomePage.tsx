@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import APIURL from '../helpers/environment';
-import {IEvents} from './Interfaces';
+import {IEvents, IUser} from './Interfaces';
 
 import HomeDisplay from './HomeDisplay';
 import Auth from './auth/Auth';
 
 
 type AcceptedProps = {
-    updateToken: (newToken: string) => void,
-    sessionToken: string
+    updateToken: (data: IUser) => void;
+    sessionToken: string;
 }
 
 type SearchState = {
-    results: IEvents[],
-    auth: boolean
+    results: IEvents[];
+    auth: boolean;
 }
 
 export default class HomePage extends Component<AcceptedProps, SearchState> {

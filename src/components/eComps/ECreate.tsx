@@ -29,18 +29,18 @@ const PurpleSwitch = withStyles({
   })(Switch);
 
 type AcceptedProps = {
-    sessionToken: string,
-    personalEventFetch: any
+    sessionToken: string;
+    personalEventFetch: any;
 }
 
 type CreateState = {
-    eventDate: Date,
-    eventDescription?: string,
-    eventEndTime?: number,
-    eventStartTime?: number,
-    eventTitle: string,
-    eventPrivacy: boolean,
-    modal: boolean
+    eventDate: Date;
+    eventDescription?: string;
+    eventEndTime?: number;
+    eventStartTime?: number;
+    eventTitle: string;
+    eventPrivacy: boolean;
+    modal: boolean;
 }
 
 export default class ECreate extends Component<AcceptedProps, CreateState> {

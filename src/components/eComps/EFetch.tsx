@@ -9,11 +9,11 @@ import ECreate from './ECreate';
 import EventsDisplay from './EDisplay';
 
 type AcceptedProps = {
-    sessionToken: string
+    sessionToken: string;
 }
 
 type EState = {
-    results: IEvents[]
+    results: IEvents[];
 }
 
 export default class EventsFetch extends Component<AcceptedProps, EState> {
@@ -24,7 +24,7 @@ export default class EventsFetch extends Component<AcceptedProps, EState> {
         }
     }
 
-    personalEventFetch = async (): Promise<any> => {
+    personalEventFetch = async (): Promise<void> => {
         await fetch(`${APIURL}/events/personal`, {
             method: 'GET',
             headers: new Headers({

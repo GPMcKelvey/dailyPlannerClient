@@ -18,13 +18,13 @@ const ColorButton = withStyles((theme: Theme) => ({
 
 type AcceptedProps = {
     sessionToken: string;
-    notesFetch: () => Promise<any>;
+    notesFetch: () => Promise<void>;
 }
 
 type CreateState = {
-    title: string,
-    content: string,
-    modal: boolean
+    title: string;
+    content: string;
+    modal: boolean;
 }
 
 export default class NotesCreate extends Component<AcceptedProps, CreateState> {

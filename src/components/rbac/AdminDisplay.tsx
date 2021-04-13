@@ -8,8 +8,8 @@ import AdminUpdate from './AdminDelete';
 
 
 type AcceptedProps = {
-    username: string,
-    id: string
+    username: string;
+    id: string;
 }
 
 const AdminDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, adminFetch: () => Promise<any>}) => {

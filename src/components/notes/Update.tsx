@@ -16,17 +16,17 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    sessionToken: string,
-    notesFetch: () => Promise<any>,
-    title: string,
-    content: string,
-    id: string
+    sessionToken: string;
+    notesFetch: () => Promise<void>;
+    title: string;
+    content: string;
+    id: string;
 }
 
 type updateState = {
-    title: string,
-    content: string,
-    modal: boolean
+    title: string;
+    content: string;
+    modal: boolean;
 }
 
 export default class NotesUpdate extends Component<AcceptedProps, updateState> {

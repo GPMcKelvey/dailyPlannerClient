@@ -24,3 +24,9 @@ export interface IAdmin {
     username: string;
     id: string;
 }
+
+export interface IUser {
+    user: string;
+    message: string;
+    sessionToken: string;
+}

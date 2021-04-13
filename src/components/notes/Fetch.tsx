@@ -7,11 +7,11 @@ import NotesCreate from './Create';
 import NotesDisplay from './Display';
 
 type AcceptedProps = {
-    sessionToken: string
+    sessionToken: string;
 }
 
 type NotesState = {
-    results: INotes[]
+    results: INotes[];
 }
 
 export default class NotesFetch extends Component<AcceptedProps, NotesState> {
@@ -22,7 +22,7 @@ export default class NotesFetch extends Component<AcceptedProps, NotesState> {
         }
     }
 
-    notesFetch = async (): Promise<any> => {
+    notesFetch = async (): Promise<void> => {
         await fetch(`${APIURL}/notes/`, {
             method: 'GET',
             headers: new Headers({

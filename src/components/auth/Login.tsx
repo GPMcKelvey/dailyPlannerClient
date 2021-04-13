@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './AuthStyle.css';
 import APIURL from '../../helpers/environment';
+import {IUser} from '../Interfaces';
 
 import {Dialog, Button, withStyles, Theme, Box} from '@material-ui/core';
 import {purple} from '@material-ui/core/colors';
@@ -16,15 +17,15 @@ const ColorButton = withStyles((theme: Theme) => ({
   }))(Button);
 
 type AcceptedProps = {
-    updateToken: (newToken: string) => void,
-    exitHandler: () => void,
-    loginModal: boolean,
+    updateToken: (data: IUser) => void;
+    exitHandler: () => void;
+    loginModal: boolean;
 }
 
 type LoginState = {
-    username: string,
-    password: string,
-    modal: boolean
+    username: string;
+    password: string;
+    modal: boolean;
 }
 
 export default class Login extends Component<AcceptedProps, LoginState> {
@@ -54,8 +55,7 @@ export default class Login extends Component<AcceptedProps, LoginState> {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-   
-            this.props.updateToken(data.sessionToken);
+            this.props.updateToken(data);
         })
         this.props.exitHandler();
     }

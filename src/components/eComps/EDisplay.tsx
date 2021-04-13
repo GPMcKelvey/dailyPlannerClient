@@ -5,13 +5,13 @@ import { Card, CardContent, Box } from '@material-ui/core';
 import EventsUpdate from './EUpdate';
 
 type AcceptedProps = {
-    eventDate: Date,
-    eventDescription: string,
-    eventEndTime: number,
-    eventStartTime: number,
-    eventTitle: string,
-    eventPrivacy: boolean,
-    id: string
+    eventDate: Date;
+    eventDescription: string;
+    eventEndTime: number;
+    eventStartTime: number;
+    eventTitle: string;
+    eventPrivacy: boolean;
+    id: string;
 }
 
 const EventsDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, personalEventFetch: () => Promise<any>}) => {

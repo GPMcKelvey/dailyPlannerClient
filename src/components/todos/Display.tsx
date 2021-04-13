@@ -5,9 +5,9 @@ import TodosUpdate from './Update';
 import { Box } from '@material-ui/core';
 
 type AcceptedProps = {
-    task: string,
-    complete: boolean,
-    id: string
+    task: string;
+    complete: boolean;
+    id: string;
 }
 
 const TodosDisplay = (props: {results: Array<AcceptedProps>, sessionToken: string, todosFetch:() => Promise<any>}) => {

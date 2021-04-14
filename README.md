@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Daily Planner!Daily Planner v1.1</h1>
+<h1 align="center">Welcome to Daily Planner!</h1>
 <hr />
 <h3 align='left'>Daily Planner v1.1</h3>
 <hr/>

@@ -14,3 +14,7 @@
 <hr />
 
 Please feel free to check it out - https://gpm-dailyplanner-client.herokuapp.com/
+
+![Screenshot (336)](https://user-images.githubusercontent.com/15043232/114645149-d9f2bc00-9ca6-11eb-84ac-a7abff641578.png)
+
+![Screenshot (337)](https://user-images.githubusercontent.com/15043232/114645194-eaa33200-9ca6-11eb-82cb-22abbaa0b654.png)
